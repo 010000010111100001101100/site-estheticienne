@@ -1,0 +1,412 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Découvrez les services proposés par L'instant de Doriane - Institut d'esthétique au Cannet">
+    <title>Nos Services - L'instant de Doriane</title>
+    <link rel="stylesheet" href="../../css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Poppins:wght@300;400;500&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/png" href="../../images/favicon.png">
+    <style>
+        .page-header {
+            background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('../../images/services-bg.jpg') no-repeat center center/cover;
+            height: 300px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: var(--white);
+            margin-top: 80px;
+        }
+        
+        .page-header h1 {
+            font-size: 4rem;
+            color: var(--white);
+        }
+        
+        .services-content {
+            padding: 80px 0;
+        }
+        
+        .service-category {
+            margin-bottom: 80px;
+        }
+        
+        .service-category h2 {
+            text-align: center;
+            margin-bottom: 40px;
+            position: relative;
+            padding-bottom: 15px;
+        }
+        
+        .service-category h2::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 2px;
+            background-color: var(--primary-color);
+        }
+        
+        .service-items {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        
+        .service-item {
+            background-color: var(--white);
+            border-radius: var(--border-radius);
+            box-shadow: var(--box-shadow);
+            overflow: hidden;
+            transition: var(--transition);
+        }
+        
+        .service-item:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--box-shadow-hover);
+        }
+        
+        .service-image {
+            height: 200px;
+            overflow: hidden;
+        }
+        
+        .service-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: var(--transition);
+        }
+        
+        .service-item:hover .service-image img {
+            transform: scale(1.1);
+        }
+        
+        .service-details {
+            padding: 25px;
+        }
+        
+        .service-details h3 {
+            margin-bottom: 15px;
+            font-size: 2.2rem;
+        }
+        
+        .service-details p {
+            color: var(--medium);
+            margin-bottom: 20px;
+        }
+        
+        .service-cta {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .service-price {
+            font-size: 2rem;
+            font-weight: 600;
+            color: var(--primary-color);
+        }
+        
+        .service-duration {
+            font-size: 1.4rem;
+            color: var(--medium);
+        }
+        
+        @media screen and (max-width: 768px) {
+            .page-header {
+                height: 200px;
+            }
+            
+            .page-header h1 {
+                font-size: 3rem;
+            }
+            
+            .service-items {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- En-tête du site -->
+    <header>
+        <div class="container">
+            <div class="header-top">
+                <div class="contact-info">
+                    <a href="tel:+33762671020"><i class="fas fa-phone"></i> 07.62.67.10.20</a>
+                    <a href="mailto:contact@beaute-elegance.fr"><i class="fas fa-envelope"></i> contact@beaute-elegance.fr</a>
+                </div>
+                <div class="social-media">
+                    <a href="https://www.instagram.com/linstantdedoriane_/" aria-label="Instagram" target="_blank"><i class="fab fa-instagram"></i></a>
+                </div>
+            </div>
+            <div class="main-header">
+                <div class="logo">
+                    <a href="../../index.html">
+                        <h1>L'instant de Doriane</h1>
+                        <p>Institut d'esthétique</p>
+                    </a>
+                </div>
+                <nav class="main-nav">
+                    <button class="mobile-menu-toggle" aria-label="Menu">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </button>
+                    <ul class="nav-links">
+                        <li><a href="../../index.html">Accueil</a></li>
+                        <li><a href="../services/index.html" class="active">Nos services</a></li>
+                        <li><a href="../tarifs/index.html">Tarifs</a></li>
+                        <li><a href="../galerie/index.html">Galerie</a></li>
+                        <li><a href="../a-propos/index.html">À propos</a></li>
+                        <li><a href="../contact/index.html">Contact</a></li>
+                    </ul>
+                </nav>
+                <div class="cta-button">
+                    <a href="../contact/index.html#reservation" class="btn btn-primary">Réserver</a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Bannière de page -->
+    <div class="page-header">
+        <div class="container">
+            <h1>Nos Services</h1>
+        </div>
+    </div>
+
+    <!-- Contenu principal -->
+    <main class="services-content">
+        <div class="container">
+            <div class="service-category">
+                <h2>Soins du Visage</h2>
+                <div class="service-items">
+                    <div class="service-item">
+                        <div class="service-image">
+                            <img src="../../images/services/visage-hydratant.jpg" alt="Soin visage hydratant">
+                        </div>
+                        <div class="service-details">
+                            <h3>Soin visage hydratant</h3>
+                            <p>Soin complet avec nettoyage, gommage et masque hydratant pour tous types de peau.</p>
+                            <div class="service-cta">
+                                <div>
+                                    <div class="service-price">60€</div>
+                                    <div class="service-duration">60 min</div>
+                                </div>
+                                <a href="../contact/index.html#reservation" class="btn btn-primary">Réserver</a>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="service-item">
+                        <div class="service-image">
+                            <img src="../../images/services/visage-anti-age.jpg" alt="Soin anti-âge">
+                        </div>
+                        <div class="service-details">
+                            <h3>Soin anti-âge</h3>
+                            <p>Soin complet avec produits spécifiques anti-âge et massage liftant pour un effet rajeunissant.</p>
+                            <div class="service-cta">
+                                <div>
+                                    <div class="service-price">85€</div>
+                                    <div class="service-duration">75 min</div>
+                                </div>
+                                <a href="../contact/index.html#reservation" class="btn btn-primary">Réserver</a>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="service-item">
+                        <div class="service-image">
+                            <img src="../../images/services/visage-purifiant.jpg" alt="Soin purifiant">
+                        </div>
+                        <div class="service-details">
+                            <h3>Soin purifiant</h3>
+                            <p>Idéal pour les peaux à tendance grasse ou acnéique, ce soin nettoie en profondeur et régule l'excès de sébum.</p>
+                            <div class="service-cta">
+                                <div>
+                                    <div class="service-price">65€</div>
+                                    <div class="service-duration">60 min</div>
+                                </div>
+                                <a href="../contact/index.html#reservation" class="btn btn-primary">Réserver</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="service-category">
+                <h2>Soins du Corps</h2>
+                <div class="service-items">
+                    <div class="service-item">
+                        <div class="service-image">
+                            <img src="../../images/services/massage-relaxant.jpg" alt="Massage relaxant">
+                        </div>
+                        <div class="service-details">
+                            <h3>Massage relaxant</h3>
+                            <p>Massage complet du corps aux huiles essentielles pour un moment de détente absolue.</p>
+                            <div class="service-cta">
+                                <div>
+                                    <div class="service-price">70€</div>
+                                    <div class="service-duration">60 min</div>
+                                </div>
+                                <a href="../contact/index.html#reservation" class="btn btn-primary">Réserver</a>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="service-item">
+                        <div class="service-image">
+                            <img src="../../images/services/gommage-corps.jpg" alt="Gommage corps">
+                        </div>
+                        <div class="service-details">
+                            <h3>Gommage corps</h3>
+                            <p>Exfoliation complète du corps suivie d'une hydratation pour une peau douce et lisse.</p>
+                            <div class="service-cta">
+                                <div>
+                                    <div class="service-price">55€</div>
+                                    <div class="service-duration">45 min</div>
+                                </div>
+                                <a href="../contact/index.html#reservation" class="btn btn-primary">Réserver</a>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="service-item">
+                        <div class="service-image">
+                            <img src="../../images/services/enveloppement.jpg" alt="Enveloppement">
+                        </div>
+                        <div class="service-details">
+                            <h3>Enveloppement</h3>
+                            <p>Enveloppement aux actifs marins ou végétaux pour détoxifier et reminéraliser votre peau.</p>
+                            <div class="service-cta">
+                                <div>
+                                    <div class="service-price">65€</div>
+                                    <div class="service-duration">50 min</div>
+                                </div>
+                                <a href="../contact/index.html#reservation" class="btn btn-primary">Réserver</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="service-category">
+                <h2>Épilation</h2>
+                <div class="service-items">
+                    <div class="service-item">
+                        <div class="service-image">
+                            <img src="../../images/services/epilation-jambes.jpg" alt="Épilation jambes">
+                        </div>
+                        <div class="service-details">
+                            <h3>Épilation jambes complètes</h3>
+                            <p>Épilation à la cire des jambes complètes pour une peau douce et lisse.</p>
+                            <div class="service-cta">
+                                <div>
+                                    <div class="service-price">35€</div>
+                                    <div class="service-duration">30 min</div>
+                                </div>
+                                <a href="../contact/index.html#reservation" class="btn btn-primary">Réserver</a>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="service-item">
+                        <div class="service-image">
+                            <img src="../../images/services/epilation-maillot.jpg" alt="Épilation maillot">
+                        </div>
+                        <div class="service-details">
+                            <h3>Épilation maillot intégral</h3>
+                            <p>Épilation complète et soignée de la zone du maillot.</p>
+                            <div class="service-cta">
+                                <div>
+                                    <div class="service-price">30€</div>
+                                    <div class="service-duration">20 min</div>
+                                </div>
+                                <a href="../contact/index.html#reservation" class="btn btn-primary">Réserver</a>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="service-item">
+                        <div class="service-image">
+                            <img src="../../images/services/epilation-visage.jpg" alt="Épilation visage">
+                        </div>
+                        <div class="service-details">
+                            <h3>Épilation sourcils</h3>
+                            <p>Restructuration et épilation des sourcils pour un regard sublimé.</p>
+                            <div class="service-cta">
+                                <div>
+                                    <div class="service-price">15€</div>
+                                    <div class="service-duration">15 min</div>
+                                </div>
+                                <a href="../contact/index.html#reservation" class="btn btn-primary">Réserver</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Pied de page -->
+    <footer class="site-footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <h3>L'instant de Doriane</h3>
+                    <p>Institut d'esthétique</p>
+                </div>
+                <div class="footer-links">
+                    <h4>Liens rapides</h4>
+                    <ul>
+                        <li><a href="../../index.html">Accueil</a></li>
+                        <li><a href="../services/index.html">Services</a></li>
+                        <li><a href="../tarifs/index.html">Tarifs</a></li>
+                        <li><a href="../galerie/index.html">Galerie</a></li>
+                        <li><a href="../a-propos/index.html">À propos</a></li>
+                        <li><a href="../contact/index.html">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-services">
+                    <h4>Nos services</h4>
+                    <ul>
+                        <li><a href="#visage">Soins du visage</a></li>
+                        <li><a href="#corps">Soins du corps</a></li>
+                        <li><a href="#epilation">Épilation</a></li>
+                        <li><a href="../tarifs/index.html">Voir tous les tarifs</a></li>
+                    </ul>
+                </div>
+                <div class="footer-contact">
+                    <h4>Contact</h4>
+                    <ul>
+                        <li><i class="fas fa-map-marker-alt"></i> 14 rue Henri Germain, 06110 Le Cannet</li>
+                        <li><i class="fas fa-phone-alt"></i> <a href="tel:+33762671020">07.62.67.10.20</a></li>
+                        <li><i class="fas fa-envelope"></i> <a href="mailto:contact@beaute-elegance.fr">contact@beaute-elegance.fr</a></li>
+                        <li><i class="fas fa-clock"></i> Lundi: 9h - 13h<br>Mardi à Samedi: 9h - 19h<br>Service à domicile disponible</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <div class="copyright">
+                    <p>&copy; 2025 L'instant de Doriane. Tous droits réservés. <a href="../privacy-policy.html">Politique de confidentialité</a></p>
+                </div>
+                <div class="footer-social">
+                    <a href="https://www.instagram.com/linstantdedoriane_/" aria-label="Instagram" target="_blank"><i class="fab fa-instagram"></i></a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="../../js/script.js"></script>
+</body>
+</html>

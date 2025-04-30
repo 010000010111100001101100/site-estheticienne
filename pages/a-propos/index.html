@@ -1,0 +1,617 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Découvrez L'instant de Doriane - Institut d'esthétique au Cannet, notre histoire et notre équipe">
+    <title>À propos - L'instant de Doriane</title>
+    <link rel="stylesheet" href="../../css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Poppins:wght@300;400;500&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/png" href="../../images/favicon.png">
+    <style>
+        .page-header {
+            background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('../../images/a-propos-bg.jpg') no-repeat center center/cover;
+            height: 300px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: var(--white);
+            margin-top: 80px;
+        }
+        
+        .page-header h1 {
+            font-size: 4rem;
+            color: var(--white);
+        }
+        
+        .about-content {
+            padding: 80px 0;
+        }
+        
+        .about-intro {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            margin-bottom: 80px;
+        }
+        
+        .about-image {
+            flex: 1;
+            min-width: 300px;
+            padding: 0 20px;
+        }
+        
+        .about-image img {
+            width: 100%;
+            border-radius: var(--border-radius);
+            box-shadow: var(--box-shadow);
+        }
+        
+        .about-text {
+            flex: 1;
+            min-width: 300px;
+            padding: 0 20px;
+        }
+        
+        .about-text h2 {
+            margin-bottom: 20px;
+            position: relative;
+            padding-bottom: 15px;
+        }
+        
+        .about-text h2::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 80px;
+            height: 2px;
+            background-color: var(--primary-color);
+        }
+        
+        .about-text p {
+            margin-bottom: 20px;
+            line-height: 1.8;
+        }
+        
+        .about-values {
+            text-align: center;
+            margin-bottom: 80px;
+        }
+        
+        .about-values h2 {
+            margin-bottom: 40px;
+            position: relative;
+            padding-bottom: 15px;
+            display: inline-block;
+        }
+        
+        .about-values h2::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 2px;
+            background-color: var(--primary-color);
+        }
+        
+        .values-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+        
+        .value-item {
+            background-color: var(--white);
+            border-radius: var(--border-radius);
+            box-shadow: var(--box-shadow);
+            padding: 30px;
+            transition: var(--transition);
+        }
+        
+        .value-item:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--box-shadow-hover);
+        }
+        
+        .value-icon {
+            font-size: 4rem;
+            color: var(--primary-color);
+            margin-bottom: 20px;
+        }
+        
+        .value-item h3 {
+            margin-bottom: 15px;
+            font-size: 2.2rem;
+        }
+        
+        .value-item p {
+            color: var(--medium);
+        }
+        
+        .team-section {
+            text-align: center;
+            margin-bottom: 80px;
+        }
+        
+        .team-section h2 {
+            margin-bottom: 40px;
+            position: relative;
+            padding-bottom: 15px;
+            display: inline-block;
+        }
+        
+        .team-section h2::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 2px;
+            background-color: var(--primary-color);
+        }
+        
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+        
+        .team-member {
+            background-color: var(--white);
+            border-radius: var(--border-radius);
+            box-shadow: var(--box-shadow);
+            overflow: hidden;
+            transition: var(--transition);
+        }
+        
+        .team-member:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--box-shadow-hover);
+        }
+        
+        .team-image {
+            height: 300px;
+            overflow: hidden;
+        }
+        
+        .team-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: var(--transition);
+        }
+        
+        .team-member:hover .team-image img {
+            transform: scale(1.1);
+        }
+        
+        .team-info {
+            padding: 25px;
+        }
+        
+        .team-info h3 {
+            margin-bottom: 5px;
+            font-size: 2.2rem;
+        }
+        
+        .team-info .position {
+            color: var(--primary-color);
+            font-size: 1.6rem;
+            margin-bottom: 15px;
+        }
+        
+        .team-info p {
+            color: var(--medium);
+            margin-bottom: 20px;
+        }
+        
+        .team-social {
+            display: flex;
+            justify-content: center;
+        }
+        
+        .team-social a {
+            color: var(--dark);
+            font-size: 1.8rem;
+            margin: 0 10px;
+            transition: var(--transition);
+        }
+        
+        .team-social a:hover {
+            color: var(--primary-color);
+        }
+        
+        .testimonials-section {
+            text-align: center;
+            background-color: var(--light);
+            padding: 80px 0;
+            margin-bottom: 80px;
+        }
+        
+        .testimonials-section h2 {
+            margin-bottom: 40px;
+            position: relative;
+            padding-bottom: 15px;
+            display: inline-block;
+        }
+        
+        .testimonials-section h2::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 2px;
+            background-color: var(--primary-color);
+        }
+        
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+        
+        .testimonial-item {
+            background-color: var(--white);
+            border-radius: var(--border-radius);
+            box-shadow: var(--box-shadow);
+            padding: 30px;
+            position: relative;
+        }
+        
+        .testimonial-item::before {
+            content: '\f10d';
+            font-family: 'Font Awesome 6 Free';
+            font-weight: 900;
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            font-size: 2.4rem;
+            color: var(--primary-color);
+            opacity: 0.2;
+        }
+        
+        .testimonial-text {
+            margin-bottom: 20px;
+            font-style: italic;
+            line-height: 1.8;
+        }
+        
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+        }
+        
+        .author-image {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            overflow: hidden;
+            margin-right: 15px;
+        }
+        
+        .author-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        .author-info h4 {
+            font-size: 1.8rem;
+            margin-bottom: 5px;
+        }
+        
+        .author-info .date {
+            color: var(--medium);
+            font-size: 1.4rem;
+        }
+        
+        @media screen and (max-width: 768px) {
+            .page-header {
+                height: 200px;
+            }
+            
+            .page-header h1 {
+                font-size: 3rem;
+            }
+            
+            .about-intro {
+                flex-direction: column;
+            }
+            
+            .about-image {
+                margin-bottom: 30px;
+            }
+            
+            .about-text h2 {
+                text-align: center;
+            }
+            
+            .about-text h2::after {
+                left: 50%;
+                transform: translateX(-50%);
+            }
+            
+            .values-grid, .team-grid, .testimonials-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- En-tête du site -->
+    <header>
+        <div class="container">
+            <div class="header-top">
+                <div class="contact-info">
+                    <a href="tel:+33762671020"><i class="fas fa-phone"></i> 07.62.67.10.20</a>
+                    <a href="mailto:contact@beaute-elegance.fr"><i class="fas fa-envelope"></i> contact@beaute-elegance.fr</a>
+                </div>
+                <div class="social-media">
+                    <a href="https://www.instagram.com/linstantdedoriane_/" aria-label="Instagram" target="_blank"><i class="fab fa-instagram"></i></a>
+                </div>
+            </div>
+            <div class="main-header">
+                <div class="logo">
+                    <a href="../../index.html">
+                        <h1>L'instant de Doriane</h1>
+                        <p>Institut d'esthétique</p>
+                    </a>
+                </div>
+                <nav class="main-nav">
+                    <button class="mobile-menu-toggle" aria-label="Menu">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </button>
+                    <ul class="nav-links">
+                        <li><a href="../../index.html">Accueil</a></li>
+                        <li><a href="../services/index.html">Nos services</a></li>
+                        <li><a href="../tarifs/index.html">Tarifs</a></li>
+                        <li><a href="../galerie/index.html">Galerie</a></li>
+                        <li><a href="../a-propos/index.html" class="active">À propos</a></li>
+                        <li><a href="../contact/index.html">Contact</a></li>
+                    </ul>
+                </nav>
+                <div class="cta-button">
+                    <a href="../contact/index.html#reservation" class="btn btn-primary">Réserver</a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Bannière de page -->
+    <div class="page-header">
+        <div class="container">
+            <h1>À propos de nous</h1>
+        </div>
+    </div>
+
+    <!-- Contenu principal -->
+    <main class="about-content">
+        <div class="container">
+            <!-- Introduction -->
+            <section class="about-intro">
+                <div class="about-image">
+                    <img src="../../images/team/doriane.jpg" alt="Doriane - Fondatrice de L'instant de Doriane">
+                </div>
+                <div class="about-text">
+                    <h2>Notre histoire</h2>
+                    <p>Bienvenue à <strong>L'instant de Doriane</strong>, votre institut d'esthétique au cœur du Cannet. Fondé par Doriane, passionnée d'esthétique et de bien-être, notre institut est né d'une vision simple : offrir des soins de beauté personnalisés dans un cadre élégant et apaisant.</p>
+                    <p>Après plusieurs années d'expérience dans le domaine de l'esthétique, Doriane a décidé de créer son propre espace où chaque cliente pourrait se sentir unique et choyée. Depuis notre ouverture, nous nous efforçons d'offrir des prestations de qualité avec des produits haut de gamme sélectionnés avec soin.</p>
+                    <p>Notre équipe est composée de professionnelles qualifiées et passionnées, toujours à l'écoute de vos besoins et désirs. Nous nous formons régulièrement aux dernières techniques et tendances pour vous proposer ce qu'il y a de mieux.</p>
+                </div>
+            </section>
+            
+            <!-- Nos valeurs -->
+            <section class="about-values">
+                <h2>Nos valeurs</h2>
+                <p>Chez L'instant de Doriane, nous croyons que la beauté va au-delà de l'apparence. C'est pourquoi nous nous engageons à respecter ces valeurs fondamentales dans tout ce que nous faisons.</p>
+                
+                <div class="values-grid">
+                    <div class="value-item">
+                        <div class="value-icon">
+                            <i class="fas fa-heart"></i>
+                        </div>
+                        <h3>Passion</h3>
+                        <p>Nous mettons notre passion et notre expertise au service de votre beauté et de votre bien-être.</p>
+                    </div>
+                    
+                    <div class="value-item">
+                        <div class="value-icon">
+                            <i class="fas fa-gem"></i>
+                        </div>
+                        <h3>Qualité</h3>
+                        <p>Nous utilisons exclusivement des produits de haute qualité et des techniques éprouvées pour des résultats optimaux.</p>
+                    </div>
+                    
+                    <div class="value-item">
+                        <div class="value-icon">
+                            <i class="fas fa-user"></i>
+                        </div>
+                        <h3>Personnalisation</h3>
+                        <p>Chaque soin est adapté à vos besoins spécifiques, car vous êtes unique et méritez un traitement sur mesure.</p>
+                    </div>
+                    
+                    <div class="value-item">
+                        <div class="value-icon">
+                            <i class="fas fa-leaf"></i>
+                        </div>
+                        <h3>Respect</h3>
+                        <p>Nous respectons votre peau, votre corps et l'environnement en privilégiant des produits naturels et éco-responsables.</p>
+                    </div>
+                </div>
+            </section>
+            
+            <!-- Notre équipe -->
+            <section class="team-section">
+                <h2>Notre équipe</h2>
+                <p>Découvrez les professionnelles passionnées qui composent l'équipe de L'instant de Doriane.</p>
+                
+                <div class="team-grid">
+                    <div class="team-member">
+                        <div class="team-image">
+                            <img src="../../images/team/doriane.jpg" alt="Doriane">
+                        </div>
+                        <div class="team-info">
+                            <h3>Doriane</h3>
+                            <div class="position">Fondatrice & Esthéticienne</div>
+                            <p>Passionnée d'esthétique depuis plus de 10 ans, Doriane est spécialisée dans les soins du visage et les extensions de cils.</p>
+                            <div class="team-social">
+                                <a href="https://www.instagram.com/linstantdedoriane_/" aria-label="Instagram" target="_blank"><i class="fab fa-instagram"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="team-member">
+                        <div class="team-image">
+                            <img src="../../images/team/sophie.jpg" alt="Sophie">
+                        </div>
+                        <div class="team-info">
+                            <h3>Sophie</h3>
+                            <div class="position">Esthéticienne</div>
+                            <p>Experte en soins du corps et massages, Sophie vous fera vivre un moment de détente absolue.</p>
+                            <div class="team-social">
+                                <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="team-member">
+                        <div class="team-image">
+                            <img src="../../images/team/julie.jpg" alt="Julie">
+                        </div>
+                        <div class="team-info">
+                            <h3>Julie</h3>
+                            <div class="position">Prothésiste ongulaire</div>
+                            <p>Spécialiste des ongles, Julie réalise des manucures et pédicures impeccables ainsi que des poses de vernis semi-permanent.</p>
+                            <div class="team-social">
+                                <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            
+            <!-- Témoignages -->
+            <section class="testimonials-section">
+                <div class="container">
+                    <h2>Ce que nos clientes disent</h2>
+                    <p>Découvrez les témoignages de nos clientes satisfaites.</p>
+                    
+                    <div class="testimonials-grid">
+                        <div class="testimonial-item">
+                            <div class="testimonial-text">
+                                <p>Je suis cliente régulière depuis l'ouverture et je ne peux que recommander L'instant de Doriane. L'ambiance est chaleureuse, les soins sont de qualité et le personnel est à l'écoute. Un vrai moment de détente !</p>
+                            </div>
+                            <div class="testimonial-author">
+                                <div class="author-image">
+                                    <img src="../../images/testimonials/client-1.jpg" alt="Marie">
+                                </div>
+                                <div class="author-info">
+                                    <h4>Marie L.</h4>
+                                    <div class="date">Avril 2025</div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="testimonial-item">
+                            <div class="testimonial-text">
+                                <p>J'ai testé le soin visage anti-âge et j'en suis ravie ! Ma peau est plus ferme et lumineuse. Doriane a su me conseiller les produits adaptés à mon type de peau. Je reviendrai sans hésiter.</p>
+                            </div>
+                            <div class="testimonial-author">
+                                <div class="author-image">
+                                    <img src="../../images/testimonials/client-2.jpg" alt="Sophie">
+                                </div>
+                                <div class="author-info">
+                                    <h4>Sophie D.</h4>
+                                    <div class="date">Mars 2025</div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="testimonial-item">
+                            <div class="testimonial-text">
+                                <p>Les extensions de cils réalisées par Doriane sont parfaites ! Naturelles et légères, elles tiennent très bien. L'institut est très propre et l'accueil est toujours agréable. Je recommande vivement !</p>
+                            </div>
+                            <div class="testimonial-author">
+                                <div class="author-image">
+                                    <img src="../../images/testimonials/client-3.jpg" alt="Laure">
+                                </div>
+                                <div class="author-info">
+                                    <h4>Laure M.</h4>
+                                    <div class="date">Février 2025</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <!-- Pied de page -->
+    <footer class="site-footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <h3>L'instant de Doriane</h3>
+                    <p>Institut d'esthétique</p>
+                </div>
+                <div class="footer-links">
+                    <h4>Liens rapides</h4>
+                    <ul>
+                        <li><a href="../../index.html">Accueil</a></li>
+                        <li><a href="../services/index.html">Services</a></li>
+                        <li><a href="../tarifs/index.html">Tarifs</a></li>
+                        <li><a href="../galerie/index.html">Galerie</a></li>
+                        <li><a href="../a-propos/index.html">À propos</a></li>
+                        <li><a href="../contact/index.html">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-services">
+                    <h4>Nos services</h4>
+                    <ul>
+                        <li><a href="../services/index.html">Soins du visage</a></li>
+                        <li><a href="../services/index.html">Soins du corps</a></li>
+                        <li><a href="../services/index.html">Épilation</a></li>
+                        <li><a href="../services/index.html">Manucure & Pédicure</a></li>
+                    </ul>
+                </div>
+                <div class="footer-contact">
+                    <h4>Contact</h4>
+                    <ul>
+                        <li><i class="fas fa-map-marker-alt"></i> 14 rue Henri Germain, 06110 Le Cannet</li>
+                        <li><i class="fas fa-phone-alt"></i> <a href="tel:+33762671020">07.62.67.10.20</a></li>
+                        <li><i class="fas fa-envelope"></i> <a href="mailto:contact@beaute-elegance.fr">contact@beaute-elegance.fr</a></li>
+                        <li><i class="fas fa-clock"></i> Lundi: 9h - 13h<br>Mardi à Samedi: 9h - 19h<br>Service à domicile disponible</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <div class="copyright">
+                    <p>&copy; 2025 L'instant de Doriane. Tous droits réservés. <a href="../privacy-policy.html">Politique de confidentialité</a></p>
+                </div>
+                <div class="footer-social">
+                    <a href="https://www.instagram.com/linstantdedoriane_/" aria-label="Instagram" target="_blank"><i class="fab fa-instagram"></i></a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="../../js/script.js"></script>
+</body>
+</html>

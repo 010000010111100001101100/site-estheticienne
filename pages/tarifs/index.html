@@ -1,0 +1,673 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Consultez les tarifs des prestations de L'instant de Doriane - Institut d'esthétique au Cannet">
+    <title>Tarifs - L'instant de Doriane</title>
+    <link rel="stylesheet" href="../../css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Poppins:wght@300;400;500&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/png" href="../../images/favicon.png">
+    <style>
+        .page-header {
+            background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('../../images/tarifs-bg.jpg') no-repeat center center/cover;
+            height: 300px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: var(--white);
+            margin-top: 80px;
+        }
+        
+        .page-header h1 {
+            font-size: 4rem;
+            color: var(--white);
+        }
+        
+        .tarifs-content {
+            padding: 80px 0;
+        }
+        
+        .tarifs-tabs {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 50px;
+            flex-wrap: wrap;
+        }
+        
+        .tab-btn {
+            padding: 15px 25px;
+            background-color: var(--light);
+            border: none;
+            margin: 0 10px 10px;
+            border-radius: var(--border-radius);
+            font-family: 'Poppins', sans-serif;
+            font-size: 1.6rem;
+            font-weight: 500;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+        
+        .tab-btn.active {
+            background-color: var(--primary-color);
+            color: var(--white);
+        }
+        
+        .tab-content {
+            display: none;
+        }
+        
+        .tab-content.active {
+            display: block;
+        }
+        
+        .price-list {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .price-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 0;
+            border-bottom: 1px solid var(--light);
+        }
+        
+        .price-item:last-child {
+            border-bottom: none;
+        }
+        
+        .price-name {
+            flex: 1;
+        }
+        
+        .price-name h3 {
+            font-size: 2rem;
+            margin-bottom: 5px;
+        }
+        
+        .price-name p {
+            color: var(--medium);
+            font-size: 1.4rem;
+        }
+        
+        .price-value {
+            font-size: 2.2rem;
+            font-weight: 600;
+            color: var(--primary-color);
+            padding-left: 20px;
+        }
+        
+        .price-duration {
+            font-size: 1.4rem;
+            color: var(--medium);
+            text-align: right;
+            padding-left: 20px;
+        }
+        
+        .price-category {
+            margin-bottom: 50px;
+        }
+        
+        .price-category h2 {
+            text-align: center;
+            margin-bottom: 30px;
+            position: relative;
+            padding-bottom: 15px;
+        }
+        
+        .price-category h2::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 2px;
+            background-color: var(--primary-color);
+        }
+        
+        .cta-section {
+            text-align: center;
+            margin-top: 60px;
+            padding: 40px;
+            background-color: var(--light);
+            border-radius: var(--border-radius);
+        }
+        
+        .cta-section h2 {
+            margin-bottom: 20px;
+        }
+        
+        .cta-section p {
+            margin-bottom: 30px;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        @media screen and (max-width: 768px) {
+            .page-header {
+                height: 200px;
+            }
+            
+            .page-header h1 {
+                font-size: 3rem;
+            }
+            
+            .price-item {
+                flex-direction: column;
+                text-align: center;
+                padding: 20px 0;
+            }
+            
+            .price-name {
+                margin-bottom: 10px;
+            }
+            
+            .price-value, .price-duration {
+                padding-left: 0;
+            }
+            
+            .tab-btn {
+                margin: 0 5px 10px;
+                padding: 10px 15px;
+                font-size: 1.4rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- En-tête du site -->
+    <header>
+        <div class="container">
+            <div class="header-top">
+                <div class="contact-info">
+                    <a href="tel:+33762671020"><i class="fas fa-phone"></i> 07.62.67.10.20</a>
+                    <a href="mailto:contact@beaute-elegance.fr"><i class="fas fa-envelope"></i> contact@beaute-elegance.fr</a>
+                </div>
+                <div class="social-media">
+                    <a href="https://www.instagram.com/linstantdedoriane_/" aria-label="Instagram" target="_blank"><i class="fab fa-instagram"></i></a>
+                </div>
+            </div>
+            <div class="main-header">
+                <div class="logo">
+                    <a href="../../index.html">
+                        <h1>L'instant de Doriane</h1>
+                        <p>Institut d'esthétique</p>
+                    </a>
+                </div>
+                <nav class="main-nav">
+                    <button class="mobile-menu-toggle" aria-label="Menu">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </button>
+                    <ul class="nav-links">
+                        <li><a href="../../index.html">Accueil</a></li>
+                        <li><a href="../services/index.html">Nos services</a></li>
+                        <li><a href="../tarifs/index.html" class="active">Tarifs</a></li>
+                        <li><a href="../galerie/index.html">Galerie</a></li>
+                        <li><a href="../a-propos/index.html">À propos</a></li>
+                        <li><a href="../contact/index.html">Contact</a></li>
+                    </ul>
+                </nav>
+                <div class="cta-button">
+                    <a href="../contact/index.html#reservation" class="btn btn-primary">Réserver</a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Bannière de page -->
+    <div class="page-header">
+        <div class="container">
+            <h1>Nos Tarifs</h1>
+        </div>
+    </div>
+
+    <!-- Contenu principal -->
+    <main class="tarifs-content">
+        <div class="container">
+            <div class="tarifs-tabs">
+                <button class="tab-btn active" data-tab="tab-visage">Soins du visage</button>
+                <button class="tab-btn" data-tab="tab-corps">Soins du corps</button>
+                <button class="tab-btn" data-tab="tab-epilation">Épilation</button>
+                <button class="tab-btn" data-tab="tab-mains">Mains & Pieds</button>
+                <button class="tab-btn" data-tab="tab-cils">Extensions de cils</button>
+                <button class="tab-btn" data-tab="tab-maquillage">Maquillage</button>
+            </div>
+            
+            <div id="tab-visage" class="tab-content active">
+                <div class="price-category">
+                    <h2>Soins du visage</h2>
+                    <div class="price-list">
+                        <div class="price-item">
+                            <div class="price-name">
+                                <h3>Soin visage hydratant</h3>
+                                <p>Soin complet avec nettoyage, gommage et masque hydratant pour tous types de peau.</p>
+                            </div>
+                            <div class="price-value">60€</div>
+                            <div class="price-duration">60 min</div>
+                        </div>
+                        
+                        <div class="price-item">
+                            <div class="price-name">
+                                <h3>Soin anti-âge</h3>
+                                <p>Soin complet avec produits spécifiques anti-âge et massage liftant pour un effet rajeunissant.</p>
+                            </div>
+                            <div class="price-value">85€</div>
+                            <div class="price-duration">75 min</div>
+                        </div>
+                        
+                        <div class="price-item">
+                            <div class="price-name">
+                                <h3>Soin purifiant</h3>
+                                <p>Idéal pour les peaux à tendance grasse ou acnéique, ce soin nettoie en profondeur et régule l'excès de sébum.</p>
+                            </div>
+                            <div class="price-value">65€</div>
+                            <div class="price-duration">60 min</div>
+                        </div>
+                        
+                        <div class="price-item">
+                            <div class="price-name">
+                                <h3>Soin éclat</h3>
+                                <p>Soin express pour redonner de l'éclat à votre teint, idéal avant un événement.</p>
+                            </div>
+                            <div class="price-value">45€</div>
+                            <div class="price-duration">30 min</div>
+                        </div>
+                        
+                        <div class="price-item">
+                            <div class="price-name">
+                                <h3>Soin premium</h3>
+                                <p>Notre soin le plus complet avec des produits haut de gamme et un massage du visage, du cou et du décolleté.</p>
+                            </div>
+                            <div class="price-value">95€</div>
+                            <div class="price-duration">90 min</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div id="tab-corps" class="tab-content">
+                <div class="price-category">
+                    <h2>Soins du corps</h2>
+                    <div class="price-list">
+                        <div class="price-item">
+                            <div class="price-name">
+                                <h3>Massage relaxant</h3>
+                                <p>Massage complet du corps aux huiles essentielles pour un moment de détente absolue.</p>
+                            </div>
+                            <div class="price-value">70€</div>
+                            <div class="price-duration">60 min</div>
+                        </div>
+                        
+                        <div class="price-item">
+                            <div class="price-name">
+                                <h3>Massage du dos</h3>
+                                <p>Massage ciblé sur le dos, les épaules et la nuque pour soulager les tensions.</p>
+                            </div>
+                            <div class="price-value">40€</div>
+                            <div class="price-duration">30 min</div>
+                        </div>
+                        
+                        <div class="price-item">
+                            <div class="price-name">
+                                <h3>Gommage corps</h3>
+                                <p>Exfoliation complète du corps suivie d'une hydratation pour une peau douce et lisse.</p>
+                            </div>
+                            <div class="price-value">55€</div>
+                            <div class="price-duration">45 min</div>
+                        </div>
+                        
+                        <div class="price-item">
+                            <div class="price-name">
+                                <h3>Enveloppement</h3>
+                                <p>Enveloppement aux actifs marins ou végétaux pour détoxifier et reminéraliser votre peau.</p>
+                            </div>
+                            <div class="price-value">65€</div>
+                            <div class="price-duration">50 min</div>
+                        </div>
+                        
+                        <div class="price-item">
+                            <div class="price-name">
+                                <h3>Rituel corps complet</h3>
+                                <p>Combinaison de gommage, enveloppement et massage pour une expérience complète.</p>
+                            </div>
+                            <div class="price-value">120€</div>
+                            <div class="price-duration">120 min</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div id="tab-epilation" class="tab-content">
+                <div class="price-category">
+                    <h2>Épilation</h2>
+                    <div class="price-list">
+                        <div class="price-item">
+                            <div class="price-name">
+                                <h3>Jambes complètes</h3>
+                            </div>
+                            <div class="price-value">35€</div>
+                            <div class="price-duration">30 min</div>
+                        </div>
+                        
+                        <div class="price-item">
+                            <div class="price-name">
+                                <h3>Demi-jambes</h3>
+                            </div>
+                            <div class="price-value">22€</div>
+                            <div class="price-duration">20 min</div>
+                        </div>
+                        
+                        <div class="price-item">
+                            <div class="price-name">
+                                <h3>Maillot simple</h3>
+                            </div>
+                            <div class="price-value">18€</div>
+                            <div class="price-duration">15 min</div>
+                        </div>
+                        
+                        <div class="price-item">
+                            <div class="price-name">
+                                <h3>Maillot brésilien</h3>
+                            </div>
+                            <div class="price-value">25€</div>
+                            <div class="price-duration">20 min</div>
+                        </div>
+                        
+                        <div class="price-item">
+                            <div class="price-name">
+                                <h3>Maillot intégral</h3>
+                            </div>
+                            <div class="price-value">30€</div>
+                            <div class="price-duration">20 min</div>
+                        </div>
+                        
+                        <div class="price-item">
+                            <div class="price-name">
+                                <h3>Aisselles</h3>
+                            </div>
+                            <div class="price-value">15€</div>
+                            <div class="price-duration">10 min</div>
+                        </div>
+                        
+                        <div class="price-item">
+                            <div class="price-name">
+                                <h3>Bras</h3>
+                            </div>
+                            <div class="price-value">20€</div>
+                            <div class="price-duration">15 min</div>
+                        </div>
+                        
+                        <div class="price-item">
+                            <div class="price-name">
+                                <h3>Sourcils</h3>
+                            </div>
+                            <div class="price-value">15€</div>
+                            <div class="price-duration">15 min</div>
+                        </div>
+                        
+                        <div class="price-item">
+                            <div class="price-name">
+                                <h3>Lèvre supérieure</h3>
+                            </div>
+                            <div class="price-value">10€</div>
+                            <div class="price-duration">10 min</div>
+                        </div>
+                        
+                        <div class="price-item">
+                            <div class="price-name">
+                                <h3>Forfait jambes complètes + maillot + aisselles</h3>
+                            </div>
+                            <div class="price-value">65€</div>
+                            <div class="price-duration">60 min</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div id="tab-mains" class="tab-content">
+                <div class="price-category">
+                    <h2>Mains & Pieds</h2>
+                    <div class="price-list">
+                        <div class="price-item">
+                            <div class="price-name">
+                                <h3>Manucure simple</h3>
+                                <p>Mise en forme des ongles, travail des cuticules et pose de base fortifiante.</p>
+                            </div>
+                            <div class="price-value">25€</div>
+                            <div class="price-duration">30 min</div>
+                        </div>
+                        
+                        <div class="price-item">
+                            <div class="price-name">
+                                <h3>Manucure complète</h3>
+                                <p>Manucure avec gommage, massage des mains et pose de vernis.</p>
+                            </div>
+                            <div class="price-value">35€</div>
+                            <div class="price-duration">45 min</div>
+                        </div>
+                        
+                        <div class="price-item">
+                            <div class="price-name">
+                                <h3>Pose de vernis semi-permanent</h3>
+                                <p>Pose de vernis longue tenue avec préparation des ongles.</p>
+                            </div>
+                            <div class="price-value">40€</div>
+                            <div class="price-duration">45 min</div>
+                        </div>
+                        
+                        <div class="price-item">
+                            <div class="price-name">
+                                <h3>Pédicure simple</h3>
+                                <p>Soin des ongles et élimination des callosités.</p>
+                            </div>
+                            <div class="price-value">35€</div>
+                            <div class="price-duration">40 min</div>
+                        </div>
+                        
+                        <div class="price-item">
+                            <div class="price-name">
+                                <h3>Pédicure complète</h3>
+                                <p>Pédicure avec bain de pieds, gommage, massage et pose de vernis.</p>
+                            </div>
+                            <div class="price-value">50€</div>
+                            <div class="price-duration">60 min</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div id="tab-cils" class="tab-content">
+                <div class="price-category">
+                    <h2>Extensions de cils</h2>
+                    <div class="price-list">
+                        <div class="price-item">
+                            <div class="price-name">
+                                <h3>Pose complète cil à cil</h3>
+                                <p>Pose d'extensions de cils naturelles pour un regard intensifié.</p>
+                            </div>
+                            <div class="price-value">90€</div>
+                            <div class="price-duration">90 min</div>
+                        </div>
+                        
+                        <div class="price-item">
+                            <div class="price-name">
+                                <h3>Pose volume russe</h3>
+                                <p>Technique avancée pour un effet plus volumineux et dramatique.</p>
+                            </div>
+                            <div class="price-value">120€</div>
+                            <div class="price-duration">120 min</div>
+                        </div>
+                        
+                        <div class="price-item">
+                            <div class="price-name">
+                                <h3>Remplissage cil à cil</h3>
+                                <p>Entretien des extensions de cils (3 semaines maximum après la pose).</p>
+                            </div>
+                            <div class="price-value">50€</div>
+                            <div class="price-duration">60 min</div>
+                        </div>
+                        
+                        <div class="price-item">
+                            <div class="price-name">
+                                <h3>Remplissage volume russe</h3>
+                                <p>Entretien des extensions volume russe (3 semaines maximum après la pose).</p>
+                            </div>
+                            <div class="price-value">70€</div>
+                            <div class="price-duration">75 min</div>
+                        </div>
+                        
+                        <div class="price-item">
+                            <div class="price-name">
+                                <h3>Dépose</h3>
+                                <p>Retrait des extensions de cils.</p>
+                            </div>
+                            <div class="price-value">20€</div>
+                            <div class="price-duration">30 min</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div id="tab-maquillage" class="tab-content">
+                <div class="price-category">
+                    <h2>Maquillage</h2>
+                    <div class="price-list">
+                        <div class="price-item">
+                            <div class="price-name">
+                                <h3>Maquillage jour</h3>
+                                <p>Maquillage léger et naturel pour une journée spéciale.</p>
+                            </div>
+                            <div class="price-value">35€</div>
+                            <div class="price-duration">30 min</div>
+                        </div>
+                        
+                        <div class="price-item">
+                            <div class="price-name">
+                                <h3>Maquillage soirée</h3>
+                                <p>Maquillage sophistiqué pour une soirée ou un événement.</p>
+                            </div>
+                            <div class="price-value">50€</div>
+                            <div class="price-duration">45 min</div>
+                        </div>
+                        
+                        <div class="price-item">
+                            <div class="price-name">
+                                <h3>Maquillage mariée</h3>
+                                <p>Maquillage complet avec essai pour votre jour J.</p>
+                            </div>
+                            <div class="price-value">120€</div>
+                            <div class="price-duration">90 min</div>
+                        </div>
+                        
+                        <div class="price-item">
+                            <div class="price-name">
+                                <h3>Teinture des cils</h3>
+                                <p>Coloration des cils pour un regard intensifié sans maquillage.</p>
+                            </div>
+                            <div class="price-value">25€</div>
+                            <div class="price-duration">30 min</div>
+                        </div>
+                        
+                        <div class="price-item">
+                            <div class="price-name">
+                                <h3>Teinture des sourcils</h3>
+                                <p>Coloration des sourcils pour un regard structuré.</p>
+                            </div>
+                            <div class="price-value">20€</div>
+                            <div class="price-duration">20 min</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="cta-section">
+                <h2>Besoin d'un conseil personnalisé ?</h2>
+                <p>N'hésitez pas à nous contacter pour obtenir des conseils adaptés à vos besoins ou pour réserver votre prochain rendez-vous.</p>
+                <a href="../contact/index.html" class="btn btn-primary">Contactez-nous</a>
+            </div>
+        </div>
+    </main>
+
+    <!-- Pied de page -->
+    <footer class="site-footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <h3>L'instant de Doriane</h3>
+                    <p>Institut d'esthétique</p>
+                </div>
+                <div class="footer-links">
+                    <h4>Liens rapides</h4>
+                    <ul>
+                        <li><a href="../../index.html">Accueil</a></li>
+                        <li><a href="../services/index.html">Services</a></li>
+                        <li><a href="../tarifs/index.html">Tarifs</a></li>
+                        <li><a href="../galerie/index.html">Galerie</a></li>
+                        <li><a href="../a-propos/index.html">À propos</a></li>
+                        <li><a href="../contact/index.html">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-services">
+                    <h4>Nos services</h4>
+                    <ul>
+                        <li><a href="../services/index.html">Soins du visage</a></li>
+                        <li><a href="../services/index.html">Soins du corps</a></li>
+                        <li><a href="../services/index.html">Épilation</a></li>
+                        <li><a href="../services/index.html">Manucure & Pédicure</a></li>
+                    </ul>
+                </div>
+                <div class="footer-contact">
+                    <h4>Contact</h4>
+                    <ul>
+                        <li><i class="fas fa-map-marker-alt"></i> 14 rue Henri Germain, 06110 Le Cannet</li>
+                        <li><i class="fas fa-phone-alt"></i> <a href="tel:+33762671020">07.62.67.10.20</a></li>
+                        <li><i class="fas fa-envelope"></i> <a href="mailto:contact@beaute-elegance.fr">contact@beaute-elegance.fr</a></li>
+                        <li><i class="fas fa-clock"></i> Lundi: 9h - 13h<br>Mardi à Samedi: 9h - 19h<br>Service à domicile disponible</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <div class="copyright">
+                    <p>&copy; 2025 L'instant de Doriane. Tous droits réservés. <a href="../privacy-policy.html">Politique de confidentialité</a></p>
+                </div>
+                <div class="footer-social">
+                    <a href="https://www.instagram.com/linstantdedoriane_/" aria-label="Instagram" target="_blank"><i class="fab fa-instagram"></i></a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="../../js/script.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const tabBtns = document.querySelectorAll('.tab-btn');
+            const tabContents = document.querySelectorAll('.tab-content');
+            
+            tabBtns.forEach(btn => {
+                btn.addEventListener('click', function() {
+                    const tabId = this.getAttribute('data-tab');
+                    
+                    // Remove active class from all buttons and contents
+                    tabBtns.forEach(btn => btn.classList.remove('active'));
+                    tabContents.forEach(content => content.classList.remove('active'));
+                    
+                    // Add active class to clicked button and corresponding content
+                    this.classList.add('active');
+                    document.getElementById(tabId).classList.add('active');
+                });
+            });
+        });
+    </script>
+</body>
+</html>

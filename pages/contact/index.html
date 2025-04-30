@@ -1,0 +1,630 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Contactez L'instant de Doriane - Institut d'esthétique au Cannet pour prendre rendez-vous ou obtenir des informations">
+    <title>Contact - L'instant de Doriane</title>
+    <link rel="stylesheet" href="../../css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Poppins:wght@300;400;500&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/png" href="../../images/favicon.png">
+    <style>
+        .page-header {
+            background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('../../images/contact-bg.jpg') no-repeat center center/cover;
+            height: 300px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: var(--white);
+            margin-top: 80px;
+        }
+        
+        .page-header h1 {
+            font-size: 4rem;
+            color: var(--white);
+        }
+        
+        .contact-content {
+            padding: 80px 0;
+        }
+        
+        .contact-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 50px;
+        }
+        
+        .contact-info {
+            padding: 30px;
+            background-color: var(--white);
+            border-radius: var(--border-radius);
+            box-shadow: var(--box-shadow);
+        }
+        
+        .contact-info h2 {
+            margin-bottom: 30px;
+            position: relative;
+            padding-bottom: 15px;
+        }
+        
+        .contact-info h2::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 80px;
+            height: 2px;
+            background-color: var(--primary-color);
+        }
+        
+        .info-item {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 25px;
+        }
+        
+        .info-icon {
+            font-size: 2.4rem;
+            color: var(--primary-color);
+            margin-right: 15px;
+            min-width: 30px;
+            text-align: center;
+        }
+        
+        .info-text h3 {
+            margin-bottom: 5px;
+            font-size: 1.8rem;
+        }
+        
+        .info-text p, .info-text a {
+            color: var(--medium);
+            line-height: 1.6;
+        }
+        
+        .info-text a:hover {
+            color: var(--primary-color);
+        }
+        
+        .social-links {
+            display: flex;
+            margin-top: 30px;
+        }
+        
+        .social-links a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background-color: var(--light);
+            border-radius: 50%;
+            margin-right: 15px;
+            color: var(--dark);
+            font-size: 1.8rem;
+            transition: var(--transition);
+        }
+        
+        .social-links a:hover {
+            background-color: var(--primary-color);
+            color: var(--white);
+        }
+        
+        .contact-form {
+            padding: 30px;
+            background-color: var(--white);
+            border-radius: var(--border-radius);
+            box-shadow: var(--box-shadow);
+        }
+        
+        .contact-form h2 {
+            margin-bottom: 30px;
+            position: relative;
+            padding-bottom: 15px;
+        }
+        
+        .contact-form h2::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 80px;
+            height: 2px;
+            background-color: var(--primary-color);
+        }
+        
+        .form-group {
+            margin-bottom: 20px;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 500;
+        }
+        
+        .form-control {
+            width: 100%;
+            padding: 12px 15px;
+            border: 1px solid var(--light);
+            border-radius: var(--border-radius);
+            font-family: 'Poppins', sans-serif;
+            font-size: 1.6rem;
+            transition: var(--transition);
+        }
+        
+        .form-control:focus {
+            border-color: var(--primary-color);
+            outline: none;
+        }
+        
+        textarea.form-control {
+            min-height: 150px;
+            resize: vertical;
+        }
+        
+        .form-row {
+            display: flex;
+            gap: 20px;
+        }
+        
+        .form-row .form-group {
+            flex: 1;
+        }
+        
+        .map-section {
+            margin-top: 80px;
+        }
+        
+        .map-section h2 {
+            text-align: center;
+            margin-bottom: 30px;
+            position: relative;
+            padding-bottom: 15px;
+            display: inline-block;
+        }
+        
+        .map-section h2::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 2px;
+            background-color: var(--primary-color);
+        }
+        
+        .map-container {
+            height: 450px;
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            box-shadow: var(--box-shadow);
+        }
+        
+        .map-container iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+        
+        .hours-section {
+            margin-top: 80px;
+            text-align: center;
+        }
+        
+        .hours-section h2 {
+            margin-bottom: 30px;
+            position: relative;
+            padding-bottom: 15px;
+            display: inline-block;
+        }
+        
+        .hours-section h2::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 2px;
+            background-color: var(--primary-color);
+        }
+        
+        .hours-container {
+            max-width: 600px;
+            margin: 0 auto;
+            background-color: var(--white);
+            border-radius: var(--border-radius);
+            box-shadow: var(--box-shadow);
+            padding: 30px;
+        }
+        
+        .hours-item {
+            display: flex;
+            justify-content: space-between;
+            padding: 15px 0;
+            border-bottom: 1px solid var(--light);
+        }
+        
+        .hours-item:last-child {
+            border-bottom: none;
+        }
+        
+        .day {
+            font-weight: 500;
+        }
+        
+        .time {
+            color: var(--medium);
+        }
+        
+        .special-note {
+            margin-top: 20px;
+            color: var(--primary-color);
+            font-style: italic;
+        }
+        
+        @media screen and (max-width: 992px) {
+            .contact-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .form-row {
+                flex-direction: column;
+                gap: 0;
+            }
+        }
+        
+        @media screen and (max-width: 768px) {
+            .page-header {
+                height: 200px;
+            }
+            
+            .page-header h1 {
+                font-size: 3rem;
+            }
+            
+            .contact-content {
+                padding: 50px 0;
+            }
+            
+            .map-container {
+                height: 350px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- En-tête du site -->
+    <header>
+        <div class="container">
+            <div class="header-top">
+                <div class="contact-info">
+                    <a href="tel:+33762671020"><i class="fas fa-phone"></i> 07.62.67.10.20</a>
+                    <a href="mailto:contact@beaute-elegance.fr"><i class="fas fa-envelope"></i> contact@beaute-elegance.fr</a>
+                </div>
+                <div class="social-media">
+                    <a href="https://www.instagram.com/linstantdedoriane_/" aria-label="Instagram" target="_blank"><i class="fab fa-instagram"></i></a>
+                </div>
+            </div>
+            <div class="main-header">
+                <div class="logo">
+                    <a href="../../index.html">
+                        <h1>L'instant de Doriane</h1>
+                        <p>Institut d'esthétique</p>
+                    </a>
+                </div>
+                <nav class="main-nav">
+                    <button class="mobile-menu-toggle" aria-label="Menu">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </button>
+                    <ul class="nav-links">
+                        <li><a href="../../index.html">Accueil</a></li>
+                        <li><a href="../services/index.html">Nos services</a></li>
+                        <li><a href="../tarifs/index.html">Tarifs</a></li>
+                        <li><a href="../galerie/index.html">Galerie</a></li>
+                        <li><a href="../a-propos/index.html">À propos</a></li>
+                        <li><a href="../contact/index.html" class="active">Contact</a></li>
+                    </ul>
+                </nav>
+                <div class="cta-button">
+                    <a href="#reservation" class="btn btn-primary">Réserver</a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Bannière de page -->
+    <div class="page-header">
+        <div class="container">
+            <h1>Contactez-nous</h1>
+        </div>
+    </div>
+
+    <!-- Contenu principal -->
+    <main class="contact-content">
+        <div class="container">
+            <div class="contact-grid">
+                <div class="contact-info">
+                    <h2>Informations de contact</h2>
+                    
+                    <div class="info-item">
+                        <div class="info-icon">
+                            <i class="fas fa-map-marker-alt"></i>
+                        </div>
+                        <div class="info-text">
+                            <h3>Adresse</h3>
+                            <p>14 rue Henri Germain<br>06110 Le Cannet<br>France</p>
+                        </div>
+                    </div>
+                    
+                    <div class="info-item">
+                        <div class="info-icon">
+                            <i class="fas fa-phone-alt"></i>
+                        </div>
+                        <div class="info-text">
+                            <h3>Téléphone</h3>
+                            <p><a href="tel:+33762671020">07.62.67.10.20</a></p>
+                        </div>
+                    </div>
+                    
+                    <div class="info-item">
+                        <div class="info-icon">
+                            <i class="fas fa-envelope"></i>
+                        </div>
+                        <div class="info-text">
+                            <h3>Email</h3>
+                            <p><a href="mailto:contact@beaute-elegance.fr">contact@beaute-elegance.fr</a></p>
+                        </div>
+                    </div>
+                    
+                    <div class="info-item">
+                        <div class="info-icon">
+                            <i class="fas fa-clock"></i>
+                        </div>
+                        <div class="info-text">
+                            <h3>Horaires d'ouverture</h3>
+                            <p>Lundi: 9h - 13h<br>Mardi à Samedi: 9h - 19h</p>
+                        </div>
+                    </div>
+                    
+                    <div class="social-links">
+                        <a href="https://www.instagram.com/linstantdedoriane_/" aria-label="Instagram" target="_blank"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+                
+                <div class="contact-form" id="reservation">
+                    <h2>Réservez un rendez-vous</h2>
+                    <form action="#" method="post" id="booking-form">
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="name">Nom complet</label>
+                                <input type="text" id="name" name="name" class="form-control" required>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="phone">Téléphone</label>
+                                <input type="tel" id="phone" name="phone" class="form-control" required>
+                            </div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="email">Email</label>
+                            <input type="email" id="email" name="email" class="form-control" required>
+                        </div>
+                        
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="service">Service souhaité</label>
+                                <select id="service" name="service" class="form-control" required>
+                                    <option value="">Sélectionnez un service</option>
+                                    <option value="soin-visage">Soin du visage</option>
+                                    <option value="soin-corps">Soin du corps</option>
+                                    <option value="epilation">Épilation</option>
+                                    <option value="manucure">Manucure & Pédicure</option>
+                                    <option value="extensions-cils">Extensions de cils</option>
+                                    <option value="maquillage">Maquillage</option>
+                                </select>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="date">Date souhaitée</label>
+                                <input type="date" id="date" name="date" class="form-control" required>
+                            </div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="time">Heure souhaitée</label>
+                            <select id="time" name="time" class="form-control" required>
+                                <option value="">Sélectionnez une heure</option>
+                                <option value="9:00">9:00</option>
+                                <option value="10:00">10:00</option>
+                                <option value="11:00">11:00</option>
+                                <option value="12:00">12:00</option>
+                                <option value="14:00">14:00</option>
+                                <option value="15:00">15:00</option>
+                                <option value="16:00">16:00</option>
+                                <option value="17:00">17:00</option>
+                                <option value="18:00">18:00</option>
+                            </select>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="message">Message (optionnel)</label>
+                            <textarea id="message" name="message" class="form-control"></textarea>
+                        </div>
+                        
+                        <button type="submit" class="btn btn-primary">Envoyer ma demande</button>
+                    </form>
+                </div>
+            </div>
+            
+            <!-- Section carte -->
+            <section class="map-section">
+                <div class="container">
+                    <h2>Nous trouver</h2>
+                    <div class="map-container">
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2889.9816205219397!2d7.0073612!3d43.5815522!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x12cc2bcce3c58a41%3A0x1f5b1a1c2e2c1c1c!2s14%20Rue%20Henri%20Germain%2C%2006110%20Le%20Cannet!5e0!3m2!1sfr!2sfr!4v1650000000000!5m2!1sfr!2sfr" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                    </div>
+                </div>
+            </section>
+            
+            <!-- Section horaires -->
+            <section class="hours-section">
+                <div class="container">
+                    <h2>Nos horaires</h2>
+                    <div class="hours-container">
+                        <div class="hours-item">
+                            <div class="day">Lundi</div>
+                            <div class="time">9h - 13h</div>
+                        </div>
+                        <div class="hours-item">
+                            <div class="day">Mardi</div>
+                            <div class="time">9h - 19h</div>
+                        </div>
+                        <div class="hours-item">
+                            <div class="day">Mercredi</div>
+                            <div class="time">9h - 19h</div>
+                        </div>
+                        <div class="hours-item">
+                            <div class="day">Jeudi</div>
+                            <div class="time">9h - 19h</div>
+                        </div>
+                        <div class="hours-item">
+                            <div class="day">Vendredi</div>
+                            <div class="time">9h - 19h</div>
+                        </div>
+                        <div class="hours-item">
+                            <div class="day">Samedi</div>
+                            <div class="time">9h - 19h</div>
+                        </div>
+                        <div class="hours-item">
+                            <div class="day">Dimanche</div>
+                            <div class="time">Fermé</div>
+                        </div>
+                        
+                        <div class="special-note">
+                            <p>Service à domicile disponible sur rendez-vous</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <!-- Pied de page -->
+    <footer class="site-footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <h3>L'instant de Doriane</h3>
+                    <p>Institut d'esthétique</p>
+                </div>
+                <div class="footer-links">
+                    <h4>Liens rapides</h4>
+                    <ul>
+                        <li><a href="../../index.html">Accueil</a></li>
+                        <li><a href="../services/index.html">Services</a></li>
+                        <li><a href="../tarifs/index.html">Tarifs</a></li>
+                        <li><a href="../galerie/index.html">Galerie</a></li>
+                        <li><a href="../a-propos/index.html">À propos</a></li>
+                        <li><a href="../contact/index.html">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-services">
+                    <h4>Nos services</h4>
+                    <ul>
+                        <li><a href="../services/index.html">Soins du visage</a></li>
+                        <li><a href="../services/index.html">Soins du corps</a></li>
+                        <li><a href="../services/index.html">Épilation</a></li>
+                        <li><a href="../services/index.html">Manucure & Pédicure</a></li>
+                    </ul>
+                </div>
+                <div class="footer-contact">
+                    <h4>Contact</h4>
+                    <ul>
+                        <li><i class="fas fa-map-marker-alt"></i> 14 rue Henri Germain, 06110 Le Cannet</li>
+                        <li><i class="fas fa-phone-alt"></i> <a href="tel:+33762671020">07.62.67.10.20</a></li>
+                        <li><i class="fas fa-envelope"></i> <a href="mailto:contact@beaute-elegance.fr">contact@beaute-elegance.fr</a></li>
+                        <li><i class="fas fa-clock"></i> Lundi: 9h - 13h<br>Mardi à Samedi: 9h - 19h<br>Service à domicile disponible</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <div class="copyright">
+                    <p>&copy; 2025 L'instant de Doriane. Tous droits réservés. <a href="../privacy-policy.html">Politique de confidentialité</a></p>
+                </div>
+                <div class="footer-social">
+                    <a href="https://www.instagram.com/linstantdedoriane_/" aria-label="Instagram" target="_blank"><i class="fab fa-instagram"></i></a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="../../js/script.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const form = document.getElementById('booking-form');
+            
+            form.addEventListener('submit', function(e) {
+                e.preventDefault();
+                
+                // Ici, vous pourriez ajouter du code pour envoyer les données du formulaire
+                // via AJAX à un serveur backend
+                
+                // Pour l'instant, affichons simplement un message de confirmation
+                alert('Merci pour votre demande de rendez-vous ! Nous vous contacterons rapidement pour confirmer votre réservation.');
+                form.reset();
+            });
+            
+            // Désactiver les dates passées dans le sélecteur de date
+            const dateInput = document.getElementById('date');
+            const today = new Date();
+            const dd = String(today.getDate()).padStart(2, '0');
+            const mm = String(today.getMonth() + 1).padStart(2, '0');
+            const yyyy = today.getFullYear();
+            
+            const minDate = yyyy + '-' + mm + '-' + dd;
+            dateInput.setAttribute('min', minDate);
+            
+            // Adapter les horaires disponibles en fonction du jour sélectionné
+            dateInput.addEventListener('change', function() {
+                const selectedDate = new Date(this.value);
+                const dayOfWeek = selectedDate.getDay(); // 0 = Dimanche, 1 = Lundi, etc.
+                const timeSelect = document.getElementById('time');
+                
+                // Réinitialiser les options
+                timeSelect.innerHTML = '<option value="">Sélectionnez une heure</option>';
+                
+                // Si c'est un dimanche, afficher un message
+                if (dayOfWeek === 0) {
+                    timeSelect.innerHTML += '<option value="" disabled>Nous sommes fermés le dimanche</option>';
+                    return;
+                }
+                
+                // Si c'est un lundi, horaires de 9h à 13h
+                if (dayOfWeek === 1) {
+                    const morningHours = ['9:00', '10:00', '11:00', '12:00'];
+                    morningHours.forEach(hour => {
+                        timeSelect.innerHTML += `<option value="${hour}">${hour}</option>`;
+                    });
+                    return;
+                }
+                
+                // Pour les autres jours, horaires de 9h à 19h
+                const fullDayHours = ['9:00', '10:00', '11:00', '12:00', '14:00', '15:00', '16:00', '17:00', '18:00'];
+                fullDayHours.forEach(hour => {
+                    timeSelect.innerHTML += `<option value="${hour}">${hour}</option>`;
+                });
+            });
+        });
+    </script>
+</body>
+</html>
