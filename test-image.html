@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Test Image</title>
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            margin: 0;
+            font-family: Arial, sans-serif;
+        }
+        
+        h1 {
+            margin-bottom: 20px;
+        }
+        
+        .image-container {
+            display: flex;
+            flex-direction: column;
+            gap: 30px;
+        }
+        
+        .image-test {
+            border: 2px solid #333;
+            padding: 10px;
+            text-align: center;
+        }
+        
+        img {
+            max-width: 300px;
+            height: auto;
+            display: block;
+            margin: 0 auto;
+        }
+        
+        p {
+            margin-top: 10px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <h1>Test d'affichage d'images</h1>
+    
+    <div class="image-container">
+        <div class="image-test">
+            <p>Image 1: doriane.jpg (racine)</p>
+            <img src="doriane.jpg" alt="Test Image 1">
+        </div>
+        
+        <div class="image-test">
+            <p>Image 2: images/photoDadoo.JPG</p>
+            <img src="images/photoDadoo.JPG" alt="Test Image 2">
+        </div>
+        
+        <div class="image-test">
+            <p>Image 3: images/gallery/photoDadoo.JPG</p>
+            <img src="images/gallery/photoDadoo.JPG" alt="Test Image 3">
+        </div>
+    </div>
+</body>
+</html>

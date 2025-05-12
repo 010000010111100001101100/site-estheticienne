@@ -12,6 +12,50 @@
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Poppins:wght@300;400;500&display=swap" rel="stylesheet">
     <link rel="icon" type="image/png" href="../../images/favicon.png">
     <style>
+        /* ===== STYLES POUR L'INTERFACE UTILISATEUR ===== */
+        /* Styles pour le lien de connexion */
+        .login-link {
+            display: flex;
+            align-items: center;
+            background: linear-gradient(45deg, var(--primary-color), var(--secondary-color));
+            padding: 8px 15px;
+            border-radius: 25px;
+            font-size: 1.5rem;
+            margin-left: 20px;
+            transition: all 0.3s ease;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+            color: white;
+            font-weight: 500;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+        }
+        
+        .login-link i {
+            margin-right: 8px;
+            font-size: 1.6rem;
+            background: rgba(255, 255, 255, 0.2);
+            width: 25px;
+            height: 25px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+        }
+        
+        .login-link:hover {
+            background: linear-gradient(45deg, var(--secondary-color), var(--primary-color));
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15);
+        }
+        
+        /* ===== STYLES POUR LE PIED DE PAGE ===== */
+        /* Style pour le nom dans le pied de page */
+        .footer-logo h3 {
+            color: #ff00ff !important;
+            font-weight: bold !important;
+        }
+        
+        /* ===== STYLES POUR L'EN-TÊTE DE PAGE ===== */
         .page-header {
             background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('../../images/galerie-bg.jpg') no-repeat center center/cover;
             height: 300px;
@@ -28,6 +72,7 @@
             color: var(--white);
         }
         
+        /* ===== STYLES POUR LE CONTENU DE LA GALERIE ===== */
         .galerie-content {
             padding: 80px 0;
         }
@@ -37,38 +82,77 @@
             justify-content: center;
             margin-bottom: 40px;
             flex-wrap: wrap;
+            gap: 15px;
         }
         
+        /* Styles pour les boutons de filtre */
         .filter-btn {
-            padding: 10px 20px;
+            padding: 12px 22px;
             background-color: var(--light);
             border: none;
-            margin: 0 10px 10px;
             border-radius: var(--border-radius);
-            font-family: 'Poppins', sans-serif;
+            font-family: var(--font-secondary);
             font-size: 1.6rem;
             font-weight: 500;
             cursor: pointer;
-            transition: var(--transition);
+            transition: all 0.3s cubic-bezier(0.165, 0.84, 0.44, 1);
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+            color: var(--dark);
+        }
+        
+        .filter-btn::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background-color: var(--primary-color);
+            transition: width 0.3s ease;
+        }
+        
+        .filter-btn:hover {
+            background-color: rgba(229, 179, 187, 0.1);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+        }
+        
+        .filter-btn:hover::after {
+            width: 100%;
         }
         
         .filter-btn.active {
             background-color: var(--primary-color);
             color: var(--white);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(229, 179, 187, 0.4);
         }
         
+        /* Styles pour la grille de la galerie */
         .galerie-grid {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
             gap: 20px;
         }
         
+        /* Styles pour les éléments de la galerie */
         .galerie-item {
             position: relative;
             overflow: hidden;
             border-radius: var(--border-radius);
             height: 300px;
             cursor: pointer;
+            display: flex;
+            flex-direction: column;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .galerie-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
         }
         
         .galerie-item img {
@@ -78,42 +162,91 @@
             transition: var(--transition);
         }
         
+        /* Style spécifique pour les photos de cils */
+        .galerie-item[data-category="cils"] {
+            height: 300px; /* Même hauteur que les autres photos */
+            position: relative;
+            overflow: hidden;
+            background-color: #fff;
+        }
+        
+        .galerie-item[data-category="cils"] img {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            object-fit: scale-down; /* Affiche l'image entière tout en maximisant sa taille */
+            padding: 0; /* Pas de padding pour utiliser tout l'espace */
+        }
+        
+        /* Animation améliorée pour le filtrage */
+        .galerie-item {
+            transition: opacity 0.5s ease, transform 0.5s ease;
+        }
+        
+        .galerie-item.hidden {
+            opacity: 0;
+            transform: scale(0.8);
+            pointer-events: none;
+        }
+        
         .galerie-item:hover img {
             transform: scale(1.1);
         }
         
-        .galerie-overlay {
+        .galerie-title {
             position: absolute;
-            top: 0;
+            bottom: 0;
             left: 0;
             width: 100%;
-            height: 100%;
-            background-color: rgba(0, 0, 0, 0.5);
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            opacity: 0;
-            transition: var(--transition);
-            padding: 20px;
+            background-color: rgba(255, 255, 255, 0.85);
+            padding: 12px 15px;
             text-align: center;
+            transition: all 0.3s ease;
+            opacity: 0; /* Cacher le titre par défaut */
         }
         
-        .galerie-item:hover .galerie-overlay {
-            opacity: 1;
+        .galerie-item:hover .galerie-title {
+            opacity: 1; /* Afficher le titre au survol */
         }
+        
+        .galerie-title h3 {
+            color: var(--dark);
+            margin: 0;
+            font-size: 1.8rem;
+            font-weight: 600;
+            font-family: var(--font-primary);
+        }
+        
+        .galerie-overlay {
+            display: none; /* Masquer complètement l'ancien overlay */
+        }
+        
+        /* Effet d'overlay supprimé */
+        
+        /* Effets de texte supprimés */
         
         .galerie-overlay h3 {
-            color: var(--white);
+            color: var(--dark);
             margin-bottom: 10px;
-            font-size: 2.2rem;
+            font-size: 2.4rem;
+            font-weight: 700;
+            text-shadow: 0 1px 2px rgba(255, 255, 255, 0.5);
+            font-family: var(--font-primary);
+            transform: translateY(5px);
+            transition: transform 0.5s ease;
         }
         
         .galerie-overlay p {
-            color: var(--white);
+            color: var(--dark);
             font-size: 1.4rem;
+            font-weight: 500;
+            max-width: 90%;
+            transform: translateY(5px);
+            transition: transform 0.5s ease 0.1s;
+            opacity: 0.9;
         }
         
+        /* ===== STYLES POUR LA FENÊTRE MODALE ===== */
         .galerie-modal {
             display: none;
             position: fixed;
@@ -121,10 +254,12 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background-color: rgba(0, 0, 0, 0.9);
+            background-color: rgba(51, 51, 51, 0.95);
             z-index: 1000;
             overflow: auto;
             padding: 50px 0;
+            backdrop-filter: blur(5px);
+            -webkit-backdrop-filter: blur(5px);
         }
         
         .modal-content {
@@ -132,18 +267,40 @@
             max-width: 80%;
             margin: 0 auto;
             text-align: center;
+            background-color: rgba(255, 255, 255, 0.05);
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
         }
         
         .modal-image {
             max-width: 100%;
-            max-height: 80vh;
+            max-height: 75vh;
             border-radius: var(--border-radius);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
         }
         
         .modal-caption {
-            color: var(--white);
             margin-top: 20px;
-            font-size: 1.8rem;
+            padding: 15px;
+            border-radius: var(--border-radius);
+            background-color: rgba(255, 255, 255, 0.9);
+        }
+        
+        .modal-caption h3 {
+            color: var(--dark);
+            font-size: 2rem;
+            font-weight: 600;
+            margin-bottom: 5px;
+            font-family: var(--font-primary);
+        }
+        
+        .modal-caption p {
+            color: var(--medium);
+            font-size: 1.5rem;
+            font-family: var(--font-secondary);
         }
         
         .modal-close {
@@ -153,11 +310,19 @@
             color: var(--white);
             font-size: 3rem;
             cursor: pointer;
-            transition: var(--transition);
+            transition: all 0.3s ease;
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: rgba(229, 179, 187, 0.8);
+            border-radius: 50%;
         }
         
         .modal-close:hover {
-            color: var(--primary-color);
+            background-color: var(--primary-color);
+            transform: rotate(90deg);
         }
         
         .modal-nav {
@@ -168,19 +333,39 @@
             justify-content: space-between;
             transform: translateY(-50%);
             padding: 0 20px;
+            pointer-events: none; /* Pour que les clics passent à travers le conteneur */
         }
         
         .modal-prev, .modal-next {
             color: var(--white);
-            font-size: 3rem;
+            font-size: 2.5rem;
             cursor: pointer;
-            transition: var(--transition);
+            transition: all 0.3s ease;
+            width: 50px;
+            height: 50px;
+            background-color: rgba(229, 179, 187, 0.7);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
+            pointer-events: auto; /* Réactiver les événements de pointeur */
         }
         
         .modal-prev:hover, .modal-next:hover {
-            color: var(--primary-color);
+            background-color: var(--primary-color);
+            transform: scale(1.1);
         }
         
+        .modal-prev {
+            margin-left: -25px;
+        }
+        
+        .modal-next {
+            margin-right: -25px;
+        }
+        
+        /* ===== STYLES RESPONSIVE ===== */
         @media screen and (max-width: 768px) {
             .page-header {
                 height: 200px;
@@ -212,22 +397,22 @@
 </head>
 <body>
     <!-- En-tête du site -->
-    <header>
+    <header style="background: linear-gradient(45deg, rgba(74, 124, 89, 0.8), rgba(58, 99, 72, 0.8)); backdrop-filter: blur(5px);">
         <div class="container">
             <div class="header-top">
                 <div class="contact-info">
-                    <a href="tel:+33762671020"><i class="fas fa-phone"></i> 07.62.67.10.20</a>
-                    <a href="mailto:contact@beaute-elegance.fr"><i class="fas fa-envelope"></i> contact@beaute-elegance.fr</a>
+                    <!-- Numéro et email supprimés -->
                 </div>
                 <div class="social-media">
-                    <a href="https://www.instagram.com/linstantdedoriane_/" aria-label="Instagram" target="_blank"><i class="fab fa-instagram"></i></a>
+                    <!-- Logo Instagram supprimé -->
+                    <a href="../compte/connexion.html" class="login-link"><i class="fas fa-user"></i> <span style="color: #ffffff;">Connexion</span></a>
                 </div>
             </div>
             <div class="main-header">
                 <div class="logo">
                     <a href="../../index.html">
-                        <h1>L'instant de Doriane</h1>
-                        <p>Institut d'esthétique</p>
+                        <h1 style="font-family: 'Playfair Display', serif; font-weight: 700; font-size: 2.8rem; color: #ffffff; text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2); letter-spacing: 1px; margin-bottom: 5px;">L'instant de <span style="color: #ffffff;">Doriane</span></h1>
+                        <p style="font-family: 'Poppins', sans-serif; color: #000000; font-size: 1.4rem; font-style: italic; letter-spacing: 1px;">Institut d'esthétique</p>
                     </a>
                 </div>
                 <nav class="main-nav">
@@ -241,7 +426,7 @@
                         <li><a href="../services/index.html">Nos services</a></li>
                         <li><a href="../tarifs/index.html">Tarifs</a></li>
                         <li><a href="../galerie/index.html" class="active">Galerie</a></li>
-                        <li><a href="../a-propos/index.html">À propos</a></li>
+                        <li><a href="../a-propos/index.html">Valeurs</a></li>
                         <li><a href="../contact/index.html">Contact</a></li>
                     </ul>
                 </nav>
@@ -253,9 +438,10 @@
     </header>
 
     <!-- Bannière de page -->
-    <div class="page-header">
+    <div class="page-header main-content">
         <div class="container">
-            <h1>Notre Galerie</h1>
+            <h1 class="animate-fade-up modern-title">Notre Galerie</h1>
+            <div class="subtitle animate-fade-up delay-100">Découvrez nos plus belles réalisations</div>
         </div>
     </div>
 
@@ -264,109 +450,164 @@
         <div class="container">
             <div class="galerie-filters">
                 <button class="filter-btn active" data-filter="all">Tous</button>
-                <button class="filter-btn" data-filter="visage">Soins du visage</button>
-                <button class="filter-btn" data-filter="corps">Soins du corps</button>
                 <button class="filter-btn" data-filter="mains">Manucure & Pédicure</button>
                 <button class="filter-btn" data-filter="cils">Extensions de cils</button>
-                <button class="filter-btn" data-filter="institut">Notre institut</button>
             </div>
             
             <div class="galerie-grid">
-                <div class="galerie-item" data-category="visage">
-                    <img src="../../images/gallery/visage-1.jpg" alt="Soin du visage">
-                    <div class="galerie-overlay">
-                        <h3>Soin du visage hydratant</h3>
-                        <p>Un moment de détente et d'hydratation pour votre peau</p>
-                    </div>
-                </div>
-                
-                <div class="galerie-item" data-category="visage">
-                    <img src="../../images/gallery/visage-2.jpg" alt="Soin anti-âge">
-                    <div class="galerie-overlay">
-                        <h3>Soin anti-âge</h3>
-                        <p>Traitement spécifique pour lutter contre les signes du temps</p>
-                    </div>
-                </div>
-                
-                <div class="galerie-item" data-category="corps">
-                    <img src="../../images/gallery/corps-1.jpg" alt="Massage relaxant">
-                    <div class="galerie-overlay">
-                        <h3>Massage relaxant</h3>
-                        <p>Un moment de détente absolue pour votre corps et votre esprit</p>
-                    </div>
-                </div>
-                
-                <div class="galerie-item" data-category="corps">
-                    <img src="../../images/gallery/corps-2.jpg" alt="Gommage corps">
-                    <div class="galerie-overlay">
-                        <h3>Gommage corps</h3>
-                        <p>Exfoliation complète pour une peau douce et lisse</p>
-                    </div>
-                </div>
-                
-                <div class="galerie-item" data-category="mains">
-                    <img src="../../images/gallery/mains-1.jpg" alt="Manucure">
-                    <div class="galerie-overlay">
-                        <h3>Manucure complète</h3>
-                        <p>Soin des mains et des ongles pour des mains parfaites</p>
-                    </div>
-                </div>
-                
-                <div class="galerie-item" data-category="mains">
-                    <img src="../../images/gallery/mains-2.jpg" alt="Pédicure">
-                    <div class="galerie-overlay">
-                        <h3>Pédicure spa</h3>
-                        <p>Soin complet des pieds pour une sensation de légèreté</p>
+                <!-- SECTION CILS -->
+                <div class="galerie-item" data-category="cils">
+                    <img src="../../images/gallery/photo19.jpeg" alt="Rehaussement de cils avant-après">
+                    <div class="galerie-title">
+                        <h3>Rehaussement de cils avant-après</h3>
                     </div>
                 </div>
                 
                 <div class="galerie-item" data-category="cils">
-                    <img src="../../images/gallery/cils-1.jpg" alt="Extensions de cils">
-                    <div class="galerie-overlay">
-                        <h3>Extensions de cils</h3>
-                        <p>Regard intensifié et naturel avec nos extensions cil à cil</p>
+                    <img src="../../images/gallery/photo20.jpeg" alt="Rehaussement de cils naturel">
+                    <div class="galerie-title">
+                        <h3>Rehaussement de cils naturel</h3>
                     </div>
                 </div>
+                
+
                 
                 <div class="galerie-item" data-category="cils">
-                    <img src="../../images/gallery/cils-2.jpg" alt="Volume russe">
-                    <div class="galerie-overlay">
-                        <h3>Volume russe</h3>
-                        <p>Extensions de cils volumineuses pour un regard dramatique</p>
+                    <img src="../../images/gallery/photo22.jpeg" alt="Rehaussement de cils effet volume">
+                    <div class="galerie-title">
+                        <h3>Rehaussement de cils effet volume</h3>
                     </div>
                 </div>
                 
-                <div class="galerie-item" data-category="institut">
-                    <img src="../../images/gallery/institut-1.jpg" alt="Notre institut">
-                    <div class="galerie-overlay">
-                        <h3>Notre espace d'accueil</h3>
-                        <p>Un environnement chaleureux et élégant pour vous recevoir</p>
+                <!-- SECTION MANUCURE -->
+                <div class="galerie-item" data-category="mains">
+                    <img src="../../images/gallery/photo1.PNG" alt="Gold rush paillette rose">
+                    <div class="galerie-title">
+                        <h3>Gold rush paillette rose</h3>
                     </div>
                 </div>
                 
-                <div class="galerie-item" data-category="institut">
-                    <img src="../../images/gallery/institut-2.jpg" alt="Cabine de soins">
-                    <div class="galerie-overlay">
-                        <h3>Cabine de soins</h3>
-                        <p>Un espace dédié à votre bien-être et à votre beauté</p>
+                <div class="galerie-item" data-category="mains">
+                    <img src="../../images/gallery/photo7.jpeg" alt="Cherry">
+                    <div class="galerie-title">
+                        <h3>Cherry</h3>
                     </div>
                 </div>
                 
-                <div class="galerie-item" data-category="institut">
-                    <img src="../../images/gallery/institut-3.jpg" alt="Produits">
-                    <div class="galerie-overlay">
-                        <h3>Nos produits</h3>
-                        <p>Des produits de qualité sélectionnés pour votre peau</p>
+                <div class="galerie-item" data-category="mains">
+                    <img src="../../images/gallery/photo8.jpeg" alt="Royal Gard">
+                    <div class="galerie-title">
+                        <h3>Royal Gard</h3>
                     </div>
                 </div>
                 
-                <div class="galerie-item" data-category="visage">
-                    <img src="../../images/gallery/visage-3.jpg" alt="Soin purifiant">
-                    <div class="galerie-overlay">
-                        <h3>Soin purifiant</h3>
-                        <p>Nettoyage en profondeur pour une peau purifiée</p>
+                <div class="galerie-item" data-category="mains">
+                    <img src="../../images/gallery/photo9.jpeg" alt="Starcciatella">
+                    <div class="galerie-title">
+                        <h3>Starcciatella</h3>
                     </div>
                 </div>
+                
+                <div class="galerie-item" data-category="mains">
+                    <img src="../../images/gallery/photo10.jpeg" alt="Star Lignt">
+                    <div class="galerie-title">
+                        <h3>Star Lignt</h3>
+                    </div>
+                </div>
+                
+                <div class="galerie-item" data-category="mains">
+                    <img src="../../images/gallery/photo2.PNG" alt="French manucure">
+                    <div class="galerie-title">
+                        <h3>French manucure</h3>
+                    </div>
+                </div>
+                
+                <div class="galerie-item" data-category="mains">
+                    <img src="../../images/gallery/photo3.PNG" alt="Birthday">
+                    <div class="galerie-title">
+                        <h3>Birthday</h3>
+                    </div>
+                </div>
+                
+                <div class="galerie-item" data-category="mains">
+                    <img src="../../images/gallery/photo6.jpeg" alt="Illusion">
+                    <div class="galerie-title">
+                        <h3>Illusion</h3>
+                    </div>
+                </div>
+                
+                <div class="galerie-item" data-category="mains">
+                    <img src="../../images/gallery/photo4.PNG" alt="Cire Naturel">
+                    <div class="galerie-title">
+                        <h3>Cire Naturel</h3>
+                    </div>
+                </div>
+                
+                <div class="galerie-item" data-category="mains">
+                    <img src="../../images/gallery/photo5.jpeg" alt="Vernis beige">
+                    <div class="galerie-title">
+                        <h3>Vernis beige</h3>
+                    </div>
+                </div>
+                
+                
+                <div class="galerie-item" data-category="mains">
+                    <img src="../../images/gallery/photo11.PNG" alt="Baby">
+                    <div class="galerie-title">
+                        <h3>Baby</h3>
+                    </div>
+                </div>
+                
+                <div class="galerie-item" data-category="mains">
+                    <img src="../../images/gallery/photo12.jpeg" alt="Summer">
+                    <div class="galerie-title">
+                        <h3>Summer</h3>
+                    </div>
+                </div>
+                
+                <div class="galerie-item" data-category="mains">
+                    <img src="../../images/gallery/photo13.jpeg" alt="Illusion Champagne">
+                    <div class="galerie-title">
+                        <h3>Illusion Champagne</h3>
+                    </div>
+                </div>
+                
+                <div class="galerie-item" data-category="mains">
+                    <img src="../../images/gallery/photo14.jpeg" alt="Nail Art">
+                    <div class="galerie-title">
+                        <h3>Nail Art</h3>
+                    </div>
+                </div>
+                
+                <div class="galerie-item" data-category="mains">
+                    <img src="../../images/gallery/photo15.jpeg" alt="Wild">
+                    <div class="galerie-title">
+                        <h3>Wild</h3>
+                    </div>
+                </div>
+                
+                <div class="galerie-item" data-category="mains">
+                    <img src="../../images/gallery/photo16.jpeg" alt="French">
+                    <div class="galerie-title">
+                        <h3>French</h3>
+                    </div>
+                </div>
+                
+                <div class="galerie-item" data-category="mains">
+                    <img src="../../images/gallery/photo17.jpeg" alt="French Léopard">
+                    <div class="galerie-title">
+                        <h3>French Léopard</h3>
+                    </div>
+                </div>
+                
+                <div class="galerie-item" data-category="mains">
+                    <img src="../../images/gallery/photo18.jpeg" alt="Poison">
+                    <div class="galerie-title">
+                        <h3>Poison</h3>
+                    </div>
+                </div>
+                
+                <!-- Note: Les sections soins et institut ont été supprimées car elles contenaient des cases vides -->
             </div>
         </div>
     </main>
@@ -389,8 +630,6 @@
         <div class="container">
             <div class="footer-content">
                 <div class="footer-logo">
-                    <h3>L'instant de Doriane</h3>
-                    <p>Institut d'esthétique</p>
                 </div>
                 <div class="footer-links">
                     <h4>Liens rapides</h4>
@@ -406,10 +645,9 @@
                 <div class="footer-services">
                     <h4>Nos services</h4>
                     <ul>
-                        <li><a href="../services/index.html">Soins du visage</a></li>
-                        <li><a href="../services/index.html">Soins du corps</a></li>
-                        <li><a href="../services/index.html">Épilation</a></li>
-                        <li><a href="../services/index.html">Manucure & Pédicure</a></li>
+                        <li><a href="../services/index.html#epilation">Épilation</a></li>
+                        <li><a href="../services/index.html#manucure">Manucure & Pédicure</a></li>
+                        <li><a href="../tarifs/index.html">Voir les tarifs</a></li>
                     </ul>
                 </div>
                 <div class="footer-contact">
@@ -417,14 +655,14 @@
                     <ul>
                         <li><i class="fas fa-map-marker-alt"></i> 14 rue Henri Germain, 06110 Le Cannet</li>
                         <li><i class="fas fa-phone-alt"></i> <a href="tel:+33762671020">07.62.67.10.20</a></li>
-                        <li><i class="fas fa-envelope"></i> <a href="mailto:contact@beaute-elegance.fr">contact@beaute-elegance.fr</a></li>
+                        <li><i class="fas fa-envelope"></i> <a href="mailto:linstantdedoriane@yahoo.com">linstantdedoriane@yahoo.com</a></li>
                         <li><i class="fas fa-clock"></i> Lundi: 9h - 13h<br>Mardi à Samedi: 9h - 19h<br>Service à domicile disponible</li>
                     </ul>
                 </div>
             </div>
             <div class="footer-bottom">
                 <div class="copyright">
-                    <p>&copy; 2025 L'instant de Doriane. Tous droits réservés. <a href="../privacy-policy.html">Politique de confidentialité</a></p>
+                    <p>&copy; 2025 <strong>L'instant de Doriane</strong> <span class="droits">Tous droits réservés</span> <a href="../privacy-policy.html">Politique de confidentialité</a></p>
                 </div>
                 <div class="footer-social">
                     <a href="https://www.instagram.com/linstantdedoriane_/" aria-label="Instagram" target="_blank"><i class="fab fa-instagram"></i></a>
@@ -433,37 +671,76 @@
         </div>
     </footer>
 
+    <!-- Bouton retour en haut -->
+    <a href="#" class="back-to-top" aria-label="Retour en haut"><i class="fas fa-chevron-up"></i></a>
+
     <!-- Scripts -->
     <script src="../../js/script.js"></script>
+    <script src="../../js/animations.js"></script>
+    <script src="../../js/scroll-down.js"></script>
+    <!-- Script pour la galerie interactive -->
     <script>
+        /**
+         * Script principal pour la galerie interactive
+         * Fonctionnalités :
+         * - Filtrage des images par catégorie
+         * - Affichage des images en plein écran dans une modal
+         * - Navigation entre les images avec les flèches et le clavier
+         */
         document.addEventListener('DOMContentLoaded', function() {
-            // Filtrage de la galerie
+            // ===== INITIALISATION DES VARIABLES =====
+            // Sélectionner tous les boutons de filtre et les éléments de la galerie
             const filterBtns = document.querySelectorAll('.filter-btn');
             const galerieItems = document.querySelectorAll('.galerie-item');
             
+            // Afficher toutes les catégories au chargement de la page
+            console.log('Catégories disponibles:');
+            galerieItems.forEach(item => {
+                console.log(`Élément: ${item.querySelector('h3').textContent}, Catégorie: ${item.getAttribute('data-category')}`);
+            });
+            
+            // ===== FONCTIONS DE FILTRAGE =====
+            /**
+             * Filtre les éléments de la galerie selon la catégorie sélectionnée
+             * @param {string} filter - La catégorie à filtrer ('all' ou nom de catégorie)
+             */
+            function filterItems(filter) {
+                galerieItems.forEach(item => {
+                    const category = item.getAttribute('data-category');
+                    console.log(`Filtrage: Élément ${item.querySelector('h3').textContent}, Catégorie: ${category}, Filtre actuel: ${filter}`);
+                    
+                    if (filter === 'all' || category === filter) {
+                        item.style.display = 'block';
+                    } else {
+                        item.style.display = 'none';
+                    }
+                });
+            }
+            
+            // Ajouter les écouteurs d'événements aux boutons de filtre
             filterBtns.forEach(btn => {
                 btn.addEventListener('click', function() {
                     // Retirer la classe active de tous les boutons
-                    filterBtns.forEach(btn => btn.classList.remove('active'));
+                    filterBtns.forEach(b => b.classList.remove('active'));
                     
                     // Ajouter la classe active au bouton cliqué
                     this.classList.add('active');
                     
-                    // Récupérer la valeur du filtre
+                    // Filtrer les éléments
                     const filter = this.getAttribute('data-filter');
-                    
-                    // Filtrer les éléments de la galerie
-                    galerieItems.forEach(item => {
-                        if (filter === 'all' || item.getAttribute('data-category') === filter) {
-                            item.style.display = 'block';
-                        } else {
-                            item.style.display = 'none';
-                        }
-                    });
+                    console.log('Filtre sélectionné:', filter);
+                    filterItems(filter);
                 });
             });
             
-            // Modal de la galerie
+            /**
+             * Récupère les éléments actuellement visibles dans la galerie
+             * @return {Array} Tableau des éléments visibles
+             */
+            const getVisibleItems = () => Array.from(galerieItems).filter(item => item.style.display !== 'none');
+            
+            // ===== GESTION DE LA MODAL =====
+            // Éléments de la modal
             const modal = document.querySelector('.galerie-modal');
             const modalImage = document.querySelector('.modal-image');
             const modalCaption = document.querySelector('.modal-caption');
@@ -472,20 +749,18 @@
             const modalNext = document.querySelector('.modal-next');
             
             let currentIndex = 0;
-            const visibleItems = () => Array.from(galerieItems).filter(item => item.style.display !== 'none');
             
             // Ouvrir la modal au clic sur une image
             galerieItems.forEach(item => {
                 item.addEventListener('click', function() {
-                    const items = visibleItems();
+                    const items = getVisibleItems();
                     currentIndex = items.indexOf(this);
                     
                     const img = this.querySelector('img');
                     const title = this.querySelector('h3').textContent;
-                    const desc = this.querySelector('p').textContent;
                     
                     modalImage.src = img.src;
-                    modalCaption.innerHTML = `<h3>${title}</h3><p>${desc}</p>`;
+                    modalCaption.innerHTML = `<h3>${title}</h3>`;
                     modal.style.display = 'block';
                     
                     // Désactiver le défilement de la page
@@ -509,29 +784,27 @@
             
             // Navigation dans la modal
             modalPrev.addEventListener('click', function() {
-                const items = visibleItems();
+                const items = getVisibleItems();
                 currentIndex = (currentIndex - 1 + items.length) % items.length;
                 
                 const item = items[currentIndex];
                 const img = item.querySelector('img');
                 const title = item.querySelector('h3').textContent;
-                const desc = item.querySelector('p').textContent;
                 
                 modalImage.src = img.src;
-                modalCaption.innerHTML = `<h3>${title}</h3><p>${desc}</p>`;
+                modalCaption.innerHTML = `<h3>${title}</h3>`;
             });
             
             modalNext.addEventListener('click', function() {
-                const items = visibleItems();
+                const items = getVisibleItems();
                 currentIndex = (currentIndex + 1) % items.length;
                 
                 const item = items[currentIndex];
                 const img = item.querySelector('img');
                 const title = item.querySelector('h3').textContent;
-                const desc = item.querySelector('p').textContent;
                 
                 modalImage.src = img.src;
-                modalCaption.innerHTML = `<h3>${title}</h3><p>${desc}</p>`;
+                modalCaption.innerHTML = `<h3>${title}</h3>`;
             });
             
             // Navigation avec les touches du clavier

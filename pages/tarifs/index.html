@@ -2,6 +2,48 @@
 <html lang="fr">
 <head>
     <meta charset="UTF-8">
+    <style>
+        /* Styles pour le lien de connexion */
+        .login-link {
+            display: flex;
+            align-items: center;
+            background: linear-gradient(45deg, var(--primary-color), var(--secondary-color));
+            padding: 8px 15px;
+            border-radius: 25px;
+            font-size: 1.5rem;
+            margin-left: 20px;
+            transition: all 0.3s ease;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+            color: white;
+            font-weight: 500;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+        }
+        
+        .login-link i {
+            margin-right: 8px;
+            font-size: 1.6rem;
+            background: rgba(255, 255, 255, 0.2);
+            width: 25px;
+            height: 25px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+        }
+        
+        .login-link:hover {
+            background: linear-gradient(45deg, var(--secondary-color), var(--primary-color));
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15);
+        }
+        
+        /* Style pour le nom dans le pied de page */
+        .footer-logo h3 {
+            color: #ff00ff !important;
+            font-weight: bold !important;
+        }
+    </style>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Consultez les tarifs des prestations de L'instant de Doriane - Institut d'esthétique au Cannet">
     <title>Tarifs - L'instant de Doriane</title>
@@ -37,32 +79,131 @@
             justify-content: center;
             margin-bottom: 50px;
             flex-wrap: wrap;
+            gap: 20px;
+            padding: 20px 0;
+            border-bottom: 2px solid var(--light);
         }
         
         .tab-btn {
-            padding: 15px 25px;
+            padding: 15px 30px;
             background-color: var(--light);
             border: none;
-            margin: 0 10px 10px;
+            margin: 0;
             border-radius: var(--border-radius);
             font-family: 'Poppins', sans-serif;
             font-size: 1.6rem;
             font-weight: 500;
             cursor: pointer;
-            transition: var(--transition);
+            transition: all 0.3s ease;
+            min-width: 200px;
+            text-align: center;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .tab-btn:before {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background-color: transparent;
+            transition: all 0.3s ease;
+        }
+        
+        .tab-btn:hover {
+            background-color: var(--light);
+            color: var(--primary-color);
+            transform: translateY(-3px);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+        }
+        
+        .tab-btn:hover:before {
+            background-color: var(--primary-color);
+            opacity: 0.5;
+        }
+        
+        /* Styles spécifiques pour chaque onglet */
+        .tab-btn[data-tab="tab-epilation"] {
+            border-top: 3px solid transparent;
+        }
+        
+        .tab-btn[data-tab="tab-mains"] {
+            border-top: 3px solid transparent;
+        }
+        
+        .tab-btn[data-tab="tab-cils"] {
+            border-top: 3px solid transparent;
+        }
+        
+        /* Styles actifs pour chaque onglet */
+        .tab-btn[data-tab="tab-epilation"].active {
+            background-color: #f8f1f6;
+            color: #d35a9c;
+            border-top: 3px solid #d35a9c;
+        }
+        
+        .tab-btn[data-tab="tab-mains"].active {
+            background-color: #f1f6f8;
+            color: #5a9cd3;
+            border-top: 3px solid #5a9cd3;
+        }
+        
+        .tab-btn[data-tab="tab-cils"].active {
+            background-color: #f6f8f1;
+            color: #9cd35a;
+            border-top: 3px solid #9cd35a;
         }
         
         .tab-btn.active {
-            background-color: var(--primary-color);
-            color: var(--white);
+            position: relative;
+            transform: translateY(-3px);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+        }
+        
+        .tab-btn.active::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 0;
+            height: 0;
+            border-left: 10px solid transparent;
+            border-right: 10px solid transparent;
+            border-top: 10px solid currentColor;
+            opacity: 0.5;
         }
         
         .tab-content {
             display: none;
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.5s ease, transform 0.5s ease;
         }
         
         .tab-content.active {
             display: block;
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        /* Styles spécifiques pour chaque contenu d'onglet */
+        #tab-epilation {
+            border-top: 3px solid #d35a9c;
+            background-color: #fefbfd;
+        }
+        
+        #tab-mains {
+            border-top: 3px solid #5a9cd3;
+            background-color: #fbfdfe;
+        }
+        
+        #tab-cils {
+            border-top: 3px solid #9cd35a;
+            background-color: #fdfefb;
         }
         
         .price-list {
@@ -112,6 +253,9 @@
         
         .price-category {
             margin-bottom: 50px;
+            padding: 30px;
+            border-radius: 15px;
+            transition: all 0.3s ease;
         }
         
         .price-category h2 {
@@ -119,6 +263,7 @@
             margin-bottom: 30px;
             position: relative;
             padding-bottom: 15px;
+            transition: color 0.3s ease;
         }
         
         .price-category h2::after {
@@ -127,9 +272,23 @@
             bottom: 0;
             left: 50%;
             transform: translateX(-50%);
-            width: 80px;
+            width: 60px;
             height: 2px;
-            background-color: var(--primary-color);
+            background-color: currentColor;
+            transition: background-color 0.3s ease;
+        }
+        
+        /* Styles spécifiques pour chaque catégorie */
+        #tab-epilation .price-category h2 {
+            color: #d35a9c;
+        }
+        
+        #tab-mains .price-category h2 {
+            color: #5a9cd3;
+        }
+        
+        #tab-cils .price-category h2 {
+            color: #9cd35a;
         }
         
         .cta-section {
@@ -184,22 +343,22 @@
 </head>
 <body>
     <!-- En-tête du site -->
-    <header>
+    <header style="background: linear-gradient(45deg, rgba(74, 124, 89, 0.8), rgba(58, 99, 72, 0.8)); backdrop-filter: blur(5px);">
         <div class="container">
             <div class="header-top">
                 <div class="contact-info">
-                    <a href="tel:+33762671020"><i class="fas fa-phone"></i> 07.62.67.10.20</a>
-                    <a href="mailto:contact@beaute-elegance.fr"><i class="fas fa-envelope"></i> contact@beaute-elegance.fr</a>
+                    <!-- Numéro et email supprimés -->
                 </div>
                 <div class="social-media">
-                    <a href="https://www.instagram.com/linstantdedoriane_/" aria-label="Instagram" target="_blank"><i class="fab fa-instagram"></i></a>
+                    <!-- Logo Instagram supprimé -->
+                    <a href="../compte/connexion.html" class="login-link"><i class="fas fa-user"></i> <span style="color: #ffffff;">Connexion</span></a>
                 </div>
             </div>
             <div class="main-header">
                 <div class="logo">
                     <a href="../../index.html">
-                        <h1>L'instant de Doriane</h1>
-                        <p>Institut d'esthétique</p>
+                        <h1 style="font-family: 'Playfair Display', serif; font-weight: 700; font-size: 2.8rem; color: #ffffff; text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2); letter-spacing: 1px; margin-bottom: 5px;">L'instant de <span style="color: #ffffff;">Doriane</span></h1>
+                        <p style="font-family: 'Poppins', sans-serif; color: #000000; font-size: 1.4rem; font-style: italic; letter-spacing: 1px;">Institut d'esthétique</p>
                     </a>
                 </div>
                 <nav class="main-nav">
@@ -213,8 +372,9 @@
                         <li><a href="../services/index.html">Nos services</a></li>
                         <li><a href="../tarifs/index.html" class="active">Tarifs</a></li>
                         <li><a href="../galerie/index.html">Galerie</a></li>
-                        <li><a href="../a-propos/index.html">À propos</a></li>
+                        <li><a href="../a-propos/index.html">Valeurs</a></li>
                         <li><a href="../contact/index.html">Contact</a></li>
+
                     </ul>
                 </nav>
                 <div class="cta-button">
@@ -225,9 +385,10 @@
     </header>
 
     <!-- Bannière de page -->
-    <div class="page-header">
+    <div class="page-header main-content">
         <div class="container">
-            <h1>Nos Tarifs</h1>
+            <h1 class="animate-fade-up modern-title">Nos Tarifs</h1>
+            <div class="subtitle animate-fade-up delay-100">Des prestations de qualité à des prix accessibles</div>
         </div>
     </div>
 
@@ -235,119 +396,12 @@
     <main class="tarifs-content">
         <div class="container">
             <div class="tarifs-tabs">
-                <button class="tab-btn active" data-tab="tab-visage">Soins du visage</button>
-                <button class="tab-btn" data-tab="tab-corps">Soins du corps</button>
-                <button class="tab-btn" data-tab="tab-epilation">Épilation</button>
+                <button class="tab-btn active" data-tab="tab-epilation">Épilation</button>
                 <button class="tab-btn" data-tab="tab-mains">Mains & Pieds</button>
                 <button class="tab-btn" data-tab="tab-cils">Extensions de cils</button>
-                <button class="tab-btn" data-tab="tab-maquillage">Maquillage</button>
             </div>
             
-            <div id="tab-visage" class="tab-content active">
-                <div class="price-category">
-                    <h2>Soins du visage</h2>
-                    <div class="price-list">
-                        <div class="price-item">
-                            <div class="price-name">
-                                <h3>Soin visage hydratant</h3>
-                                <p>Soin complet avec nettoyage, gommage et masque hydratant pour tous types de peau.</p>
-                            </div>
-                            <div class="price-value">60€</div>
-                            <div class="price-duration">60 min</div>
-                        </div>
-                        
-                        <div class="price-item">
-                            <div class="price-name">
-                                <h3>Soin anti-âge</h3>
-                                <p>Soin complet avec produits spécifiques anti-âge et massage liftant pour un effet rajeunissant.</p>
-                            </div>
-                            <div class="price-value">85€</div>
-                            <div class="price-duration">75 min</div>
-                        </div>
-                        
-                        <div class="price-item">
-                            <div class="price-name">
-                                <h3>Soin purifiant</h3>
-                                <p>Idéal pour les peaux à tendance grasse ou acnéique, ce soin nettoie en profondeur et régule l'excès de sébum.</p>
-                            </div>
-                            <div class="price-value">65€</div>
-                            <div class="price-duration">60 min</div>
-                        </div>
-                        
-                        <div class="price-item">
-                            <div class="price-name">
-                                <h3>Soin éclat</h3>
-                                <p>Soin express pour redonner de l'éclat à votre teint, idéal avant un événement.</p>
-                            </div>
-                            <div class="price-value">45€</div>
-                            <div class="price-duration">30 min</div>
-                        </div>
-                        
-                        <div class="price-item">
-                            <div class="price-name">
-                                <h3>Soin premium</h3>
-                                <p>Notre soin le plus complet avec des produits haut de gamme et un massage du visage, du cou et du décolleté.</p>
-                            </div>
-                            <div class="price-value">95€</div>
-                            <div class="price-duration">90 min</div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            
-            <div id="tab-corps" class="tab-content">
-                <div class="price-category">
-                    <h2>Soins du corps</h2>
-                    <div class="price-list">
-                        <div class="price-item">
-                            <div class="price-name">
-                                <h3>Massage relaxant</h3>
-                                <p>Massage complet du corps aux huiles essentielles pour un moment de détente absolue.</p>
-                            </div>
-                            <div class="price-value">70€</div>
-                            <div class="price-duration">60 min</div>
-                        </div>
-                        
-                        <div class="price-item">
-                            <div class="price-name">
-                                <h3>Massage du dos</h3>
-                                <p>Massage ciblé sur le dos, les épaules et la nuque pour soulager les tensions.</p>
-                            </div>
-                            <div class="price-value">40€</div>
-                            <div class="price-duration">30 min</div>
-                        </div>
-                        
-                        <div class="price-item">
-                            <div class="price-name">
-                                <h3>Gommage corps</h3>
-                                <p>Exfoliation complète du corps suivie d'une hydratation pour une peau douce et lisse.</p>
-                            </div>
-                            <div class="price-value">55€</div>
-                            <div class="price-duration">45 min</div>
-                        </div>
-                        
-                        <div class="price-item">
-                            <div class="price-name">
-                                <h3>Enveloppement</h3>
-                                <p>Enveloppement aux actifs marins ou végétaux pour détoxifier et reminéraliser votre peau.</p>
-                            </div>
-                            <div class="price-value">65€</div>
-                            <div class="price-duration">50 min</div>
-                        </div>
-                        
-                        <div class="price-item">
-                            <div class="price-name">
-                                <h3>Rituel corps complet</h3>
-                                <p>Combinaison de gommage, enveloppement et massage pour une expérience complète.</p>
-                            </div>
-                            <div class="price-value">120€</div>
-                            <div class="price-duration">120 min</div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            
-            <div id="tab-epilation" class="tab-content">
+            <div id="tab-epilation" class="tab-content active">
                 <div class="price-category">
                     <h2>Épilation</h2>
                     <div class="price-list">
@@ -538,53 +592,6 @@
                 </div>
             </div>
             
-            <div id="tab-maquillage" class="tab-content">
-                <div class="price-category">
-                    <h2>Maquillage</h2>
-                    <div class="price-list">
-                        <div class="price-item">
-                            <div class="price-name">
-                                <h3>Maquillage jour</h3>
-                                <p>Maquillage léger et naturel pour une journée spéciale.</p>
-                            </div>
-                            <div class="price-value">35€</div>
-                            <div class="price-duration">30 min</div>
-                        </div>
-                        
-                        <div class="price-item">
-                            <div class="price-name">
-                                <h3>Maquillage soirée</h3>
-                                <p>Maquillage sophistiqué pour une soirée ou un événement.</p>
-                            </div>
-                            <div class="price-value">50€</div>
-                            <div class="price-duration">45 min</div>
-                        </div>
-                        
-                        <div class="price-item">
-                            <div class="price-name">
-                                <h3>Maquillage mariée</h3>
-                                <p>Maquillage complet avec essai pour votre jour J.</p>
-                            </div>
-                            <div class="price-value">120€</div>
-                            <div class="price-duration">90 min</div>
-                        </div>
-                        
-                        <div class="price-item">
-                            <div class="price-name">
-                                <h3>Teinture des cils</h3>
-                                <p>Coloration des cils pour un regard intensifié sans maquillage.</p>
-                            </div>
-                            <div class="price-value">25€</div>
-                            <div class="price-duration">30 min</div>
-                        </div>
-                        
-                        <div class="price-item">
-                            <div class="price-name">
-                                <h3>Teinture des sourcils</h3>
-                                <p>Coloration des sourcils pour un regard structuré.</p>
-                            </div>
-                            <div class="price-value">20€</div>
-                            <div class="price-duration">20 min</div>
                         </div>
                     </div>
                 </div>
@@ -603,8 +610,6 @@
         <div class="container">
             <div class="footer-content">
                 <div class="footer-logo">
-                    <h3>L'instant de Doriane</h3>
-                    <p>Institut d'esthétique</p>
                 </div>
                 <div class="footer-links">
                     <h4>Liens rapides</h4>
@@ -620,10 +625,9 @@
                 <div class="footer-services">
                     <h4>Nos services</h4>
                     <ul>
-                        <li><a href="../services/index.html">Soins du visage</a></li>
-                        <li><a href="../services/index.html">Soins du corps</a></li>
-                        <li><a href="../services/index.html">Épilation</a></li>
-                        <li><a href="../services/index.html">Manucure & Pédicure</a></li>
+                        <li><a href="../services/index.html#epilation">Épilation</a></li>
+                        <li><a href="../services/index.html#manucure">Manucure & Pédicure</a></li>
+                        <li><a href="../tarifs/index.html">Voir les tarifs</a></li>
                     </ul>
                 </div>
                 <div class="footer-contact">
@@ -631,14 +635,14 @@
                     <ul>
                         <li><i class="fas fa-map-marker-alt"></i> 14 rue Henri Germain, 06110 Le Cannet</li>
                         <li><i class="fas fa-phone-alt"></i> <a href="tel:+33762671020">07.62.67.10.20</a></li>
-                        <li><i class="fas fa-envelope"></i> <a href="mailto:contact@beaute-elegance.fr">contact@beaute-elegance.fr</a></li>
+                        <li><i class="fas fa-envelope"></i> <a href="mailto:linstantdedoriane@yahoo.com">linstantdedoriane@yahoo.com</a></li>
                         <li><i class="fas fa-clock"></i> Lundi: 9h - 13h<br>Mardi à Samedi: 9h - 19h<br>Service à domicile disponible</li>
                     </ul>
                 </div>
             </div>
             <div class="footer-bottom">
                 <div class="copyright">
-                    <p>&copy; 2025 L'instant de Doriane. Tous droits réservés. <a href="../privacy-policy.html">Politique de confidentialité</a></p>
+                    <p>&copy; 2025 <strong>L'instant de Doriane</strong> <span class="droits">Tous droits réservés</span> <a href="../privacy-policy.html">Politique de confidentialité</a></p>
                 </div>
                 <div class="footer-social">
                     <a href="https://www.instagram.com/linstantdedoriane_/" aria-label="Instagram" target="_blank"><i class="fab fa-instagram"></i></a>
@@ -649,25 +653,83 @@
 
     <!-- Scripts -->
     <script src="../../js/script.js"></script>
+    <script src="../../js/scroll-down.js"></script>
     <script>
         document.addEventListener('DOMContentLoaded', function() {
             const tabBtns = document.querySelectorAll('.tab-btn');
             const tabContents = document.querySelectorAll('.tab-content');
             
+            // Fonction pour activer un onglet spécifique
+            function activateTab(tabId) {
+                // Désactiver tous les onglets
+                tabBtns.forEach(btn => btn.classList.remove('active'));
+                tabContents.forEach(content => content.classList.remove('active'));
+                
+                // Activer l'onglet correspondant
+                const targetBtn = document.querySelector(`[data-tab="${tabId}"]`);
+                const targetContent = document.getElementById(tabId);
+                
+                if (targetBtn && targetContent) {
+                    targetBtn.classList.add('active');
+                    targetContent.classList.add('active');
+                    
+                    // Auto-scroll désactivé à la demande de l'utilisateur
+                    // Le code ci-dessous est commenté pour éviter le défilement automatique
+                    /*
+                    setTimeout(() => {
+                        window.scrollTo({
+                            top: targetContent.offsetTop - 120,
+                            behavior: 'smooth'
+                        });
+                    }, 100);
+                    */
+                }
+            }
+            
+            // Gestion des clics sur les boutons d'onglets
             tabBtns.forEach(btn => {
                 btn.addEventListener('click', function() {
                     const tabId = this.getAttribute('data-tab');
-                    
-                    // Remove active class from all buttons and contents
-                    tabBtns.forEach(btn => btn.classList.remove('active'));
-                    tabContents.forEach(content => content.classList.remove('active'));
-                    
-                    // Add active class to clicked button and corresponding content
-                    this.classList.add('active');
-                    document.getElementById(tabId).classList.add('active');
+                    activateTab(tabId);
+                    // Mettre à jour l'URL sans recharger la page
+                    history.pushState(null, null, `#${tabId}`);
                 });
             });
+            
+            // Vérifier si l'URL contient un identifiant d'onglet
+            function checkUrlForTab() {
+                if (window.location.hash) {
+                    const tabId = window.location.hash.substring(1); // Enlever le # du début
+                    if (document.getElementById(tabId)) {
+                        // Activer l'onglet sans déclencher le défilement
+                        tabBtns.forEach(btn => btn.classList.remove('active'));
+                        tabContents.forEach(content => content.classList.remove('active'));
+                        
+                        const targetBtn = document.querySelector(`[data-tab="${tabId}"]`);
+                        const targetContent = document.getElementById(tabId);
+                        
+                        if (targetBtn && targetContent) {
+                            targetBtn.classList.add('active');
+                            targetContent.classList.add('active');
+                        }
+                        return true;
+                    }
+                }
+                return false;
+            }
+            
+            // Exécuter la vérification au chargement
+            if (!checkUrlForTab()) {
+                // Si aucun onglet n'est spécifié dans l'URL, activer l'onglet par défaut
+                activateTab('tab-epilation');
+            }
+            
+            // Écouter les changements de hash dans l'URL
+            window.addEventListener('hashchange', checkUrlForTab);
         });
     </script>
+    
+    <!-- Bouton retour en haut -->
+    <a href="#" class="back-to-top" aria-label="Retour en haut"><i class="fas fa-chevron-up"></i></a>
 </body>
 </html>

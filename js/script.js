@@ -17,7 +17,82 @@ document.addEventListener('DOMContentLoaded', function() {
     const newsletterForm = document.getElementById('newsletter-form');
     const faqItems = document.querySelectorAll('.faq-item');
     const faqQuestions = document.querySelectorAll('.faq-question');
+    const dropdownMenus = document.querySelectorAll('.has-dropdown');
+    const dropdownLinks = document.querySelectorAll('.has-dropdown > a');
 
+    // Fonction pour gérer les menus déroulants
+    function handleDropdowns() {
+        dropdownMenus.forEach(dropdown => {
+            dropdown.addEventListener('mouseenter', function() {
+                if (window.innerWidth > 992) { // Seulement sur desktop
+                    this.classList.add('active');
+                }
+            });
+            
+            dropdown.addEventListener('mouseleave', function() {
+                if (window.innerWidth > 992) { // Seulement sur desktop
+                    this.classList.remove('active');
+                }
+            });
+        });
+        
+        // Pour mobile, toggle au clic
+        dropdownLinks.forEach(link => {
+            link.addEventListener('click', function(e) {
+                if (window.innerWidth <= 992) {
+                    e.preventDefault();
+                    const parent = this.parentElement;
+                    
+                    // Fermer tous les autres dropdowns
+                    dropdownMenus.forEach(item => {
+                        if (item !== parent) {
+                            item.classList.remove('active');
+                        }
+                    });
+                    
+                    // Toggle le dropdown actuel
+                    parent.classList.toggle('active');
+                }
+            });
+        });
+    }
+    
+    // Fonction pour gérer la navigation entre les pages avec ancres
+    function handlePageNavigation() {
+        // Vérifier si on a une ancre stockée dans sessionStorage
+        const storedAnchor = sessionStorage.getItem('targetAnchor');
+        if (storedAnchor) {
+            // Effacer l'ancre stockée
+            sessionStorage.removeItem('targetAnchor');
+            
+            // Scroller vers l'ancre après un court délai pour laisser la page se charger
+            setTimeout(() => {
+                const targetElement = document.querySelector(storedAnchor);
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 100,
+                        behavior: 'smooth'
+                    });
+                }
+            }, 300);
+        }
+        
+        // Ajouter des écouteurs d'événements pour les liens vers d'autres pages avec ancres
+        const externalLinks = document.querySelectorAll('a[href*=".html#"]');
+        externalLinks.forEach(link => {
+            link.addEventListener('click', function(e) {
+                const href = this.getAttribute('href');
+                const hashIndex = href.indexOf('#');
+                
+                if (hashIndex !== -1) {
+                    const anchor = href.substring(hashIndex);
+                    // Stocker l'ancre pour la page de destination
+                    sessionStorage.setItem('targetAnchor', anchor);
+                }
+            });
+        });
+    }
+    
     // Fonction pour le menu fixe lors du défilement
     function stickyHeader() {
         if (window.scrollY > 100) {
@@ -84,48 +159,66 @@ document.addEventListener('DOMContentLoaded', function() {
     function handleAppointmentSubmit(e) {
         e.preventDefault();
         
-        // Récupérer les valeurs du formulaire
-        const name = document.getElementById('name').value;
-        const email = document.getElementById('email').value;
-        const phone = document.getElementById('phone').value;
-        const service = document.getElementById('service').value;
-        const date = document.getElementById('date').value;
-        const time = document.getElementById('time').value;
-        const message = document.getElementById('message').value;
+        const form = e.target;
+        const formData = new FormData(form);
         
-        // Validation simple
-        if (!name || !email || !phone || !service || !date || !time) {
-            alert('Veuillez remplir tous les champs obligatoires.');
+        // Validation des champs
+        const errors = [];
+        
+        // Vérifier les champs requis
+        const requiredFields = ['name', 'email', 'phone', 'service', 'date', 'time'];
+        requiredFields.forEach(field => {
+            if (!formData.get(field)) {
+                errors.push(`Le champ ${field} est requis`);
+            }
+        });
+        
+        // Vérifier le format de l'email
+        const email = formData.get('email');
+        if (email && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+            errors.push('Veuillez entrer une adresse email valide');
+        }
+        
+        // Vérifier le format du téléphone
+        const phone = formData.get('phone');
+        if (phone && !/^[0-9]{10}$/.test(phone)) {
+            errors.push('Veuillez entrer un numéro de téléphone valide (10 chiffres)');
+        }
+        
+        // Afficher les erreurs si il y en a
+        if (errors.length > 0) {
+            alert(errors.join('\n'));
             return;
         }
         
-        // Ici, vous pourriez envoyer les données à un serveur via AJAX
-        // Pour l'exemple, nous affichons simplement une confirmation
-        alert(`Merci ${name} ! Votre rendez-vous a été pris en compte. Nous vous contacterons prochainement pour confirmer.`);
-        
-        // Réinitialiser le formulaire
-        this.reset();
+        // Simulation d'envoi du formulaire
+        alert(`Merci ${formData.get('name')} ! Votre rendez-vous a été pris en compte. Nous vous contacterons prochainement pour confirmer.`);
+        form.reset();
     }
 
     // Fonction pour la soumission du formulaire de newsletter
     function handleNewsletterSubmit(e) {
         e.preventDefault();
         
-        // Récupérer l'email
-        const email = document.getElementById('newsletter-email').value;
+        const form = e.target;
+        const formData = new FormData(form);
         
-        // Validation simple
+        // Validation de l'email
+        const email = formData.get('email');
         if (!email) {
             alert('Veuillez entrer votre adresse email.');
             return;
         }
         
-        // Ici, vous pourriez envoyer les données à un serveur via AJAX
-        // Pour l'exemple, nous affichons simplement une confirmation
-        alert(`Merci ! Votre adresse ${email} a été ajoutée à notre newsletter.`);
+        // Vérifier le format de l'email
+        if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+            alert('Veuillez entrer une adresse email valide');
+            return;
+        }
         
-        // Réinitialiser le formulaire
-        this.reset();
+        // Simulation d'envoi du formulaire
+        alert(`Merci ! Votre adresse ${email} a été ajoutée à notre newsletter.`);
+        form.reset();
     }
 
     // Fonction pour l'animation au défilement
@@ -253,7 +346,8 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Fonction pour le smooth scroll
     function initSmoothScroll() {
-        const links = document.querySelectorAll('a[href^="#"]');
+        // Sélectionner tous les liens avec des ancres et les liens scroll-down
+        const links = document.querySelectorAll('a[href^="#"], .scroll-down');
         
         links.forEach(link => {
             link.addEventListener('click', function(e) {
@@ -270,8 +364,10 @@ document.addEventListener('DOMContentLoaded', function() {
                         document.body.classList.remove('menu-open');
                     }
                     
+                    // Ajuster l'offset selon le type de lien
+                    const offset = this.classList.contains('scroll-down') ? 50 : 100;
                     window.scrollTo({
-                        top: targetElement.offsetTop - 100,
+                        top: targetElement.offsetTop - offset,
                         behavior: 'smooth'
                     });
                 }
@@ -280,11 +376,22 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     // Événements
-    window.addEventListener('scroll', stickyHeader);
-    window.addEventListener('scroll', scrollFunction);
-    window.addEventListener('scroll', animateOnScroll);
-    window.addEventListener('scroll', animateSections);
+    // Grouper les écouteurs de scroll pour éviter les performances
+    const handleScroll = () => {
+        stickyHeader();
+        scrollFunction();
+        animateOnScroll();
+        animateSections();
+    };
     
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    
+    // Initialiser les fonctionnalités
+    initSmoothScroll();
+    handleDropdowns();
+    handlePageNavigation();
+    
+    // Écouteurs de clic
     mobileMenuToggle.addEventListener('click', toggleMobileMenu);
     
     tabButtons.forEach(button => {
@@ -319,6 +426,8 @@ document.addEventListener('DOMContentLoaded', function() {
     initLightbox();
     initSmoothScroll();
     initTestimonialsSlider();
+    handleDropdowns();
+    handlePageNavigation();
     
     // Ajouter des classes d'animation aux sections
     document.querySelectorAll('section').forEach(section => {

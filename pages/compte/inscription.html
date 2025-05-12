@@ -1,0 +1,575 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <style>
+        /* Style pour le nom dans le pied de page */
+        .footer-logo h3 {
+            color: #ff00ff !important;
+            font-weight: bold !important;
+        }
+    </style>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Créez votre compte sur L'instant de Doriane pour bénéficier d'avantages exclusifs et gérer vos rendez-vous en ligne.">
+    <title>Inscription - L'instant de Doriane</title>
+    <link rel="stylesheet" href="../../css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Poppins:wght@300;400;500&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/png" href="../../images/favicon.png">
+    <style>
+        .page-header {
+            background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('../../images/a-propos-bg.jpg') no-repeat center center/cover;
+            height: 300px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: var(--white);
+            margin-top: 80px;
+        }
+        
+        .page-header h1 {
+            font-size: 4rem;
+            color: var(--white);
+        }
+        
+        .auth-content {
+            padding: 80px 0;
+            background-color: var(--light);
+        }
+        
+        .auth-container {
+            max-width: 600px;
+            margin: 0 auto;
+            background-color: var(--white);
+            border-radius: var(--border-radius);
+            box-shadow: var(--box-shadow);
+            padding: 40px;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .auth-container::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            background: linear-gradient(90deg, var(--primary-color), var(--accent-color));
+        }
+        
+        .auth-header {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        
+        .auth-header h2 {
+            font-size: 2.8rem;
+            margin-bottom: 10px;
+            color: var(--dark);
+        }
+        
+        .auth-header p {
+            color: var(--medium);
+            font-size: 1.6rem;
+        }
+        
+        .auth-form .form-group {
+            margin-bottom: 25px;
+        }
+        
+        .auth-form label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 500;
+            color: var(--dark);
+            font-size: 1.6rem;
+        }
+        
+        .auth-form input {
+            width: 100%;
+            padding: 12px 15px;
+            border: 1px solid rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+            font-size: 1.6rem;
+            transition: border-color 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .auth-form input:focus {
+            border-color: var(--primary-color);
+            box-shadow: 0 0 0 3px rgba(255, 105, 180, 0.2);
+            outline: none;
+        }
+        
+        .auth-form .password-field {
+            position: relative;
+        }
+        
+        .auth-form .toggle-password {
+            position: absolute;
+            right: 15px;
+            top: 50%;
+            transform: translateY(-50%);
+            cursor: pointer;
+            color: var(--medium);
+            font-size: 1.8rem;
+        }
+        
+        .auth-form .form-footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 20px;
+        }
+        
+        .auth-form .form-footer a {
+            color: var(--primary-color);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+        
+        .auth-form .form-footer a:hover {
+            color: var(--accent-color);
+            text-decoration: underline;
+        }
+        
+        .auth-form button {
+            background: linear-gradient(45deg, var(--primary-color), var(--accent-color));
+            color: white;
+            border: none;
+            padding: 12px 30px;
+            border-radius: 30px;
+            font-size: 1.6rem;
+            cursor: pointer;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            display: block;
+            width: 100%;
+            margin-top: 30px;
+        }
+        
+        .auth-form button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(255, 105, 180, 0.4);
+        }
+        
+        .auth-separator {
+            display: flex;
+            align-items: center;
+            margin: 30px 0;
+        }
+        
+        .auth-separator .line {
+            flex-grow: 1;
+            height: 1px;
+            background-color: rgba(0, 0, 0, 0.1);
+        }
+        
+        .auth-separator .text {
+            padding: 0 15px;
+            color: var(--medium);
+            font-size: 1.4rem;
+        }
+        
+        .auth-social {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+        }
+        
+        .auth-social button {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            padding: 12px 25px;
+            border-radius: 8px;
+            border: 1px solid rgba(0, 0, 0, 0.1);
+            background-color: white;
+            cursor: pointer;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+            font-size: 1.6rem;
+        }
+        
+        .auth-social button:hover {
+            background-color: #f8f8f8;
+            transform: translateY(-2px);
+        }
+        
+        .auth-social i {
+            font-size: 1.8rem;
+        }
+        
+        .auth-social .google i {
+            color: #DB4437;
+        }
+        
+        .auth-social .facebook i {
+            color: #4267B2;
+        }
+        
+        .auth-switch {
+            text-align: center;
+            margin-top: 30px;
+            padding-top: 20px;
+            border-top: 1px solid rgba(0, 0, 0, 0.1);
+        }
+        
+        .auth-switch p {
+            color: var(--medium);
+            font-size: 1.6rem;
+        }
+        
+        .auth-switch a {
+            color: var(--primary-color);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+        
+        .auth-switch a:hover {
+            color: var(--accent-color);
+            text-decoration: underline;
+        }
+        
+        .form-error {
+            color: #e74c3c;
+            font-size: 1.4rem;
+            margin-top: 5px;
+            display: none;
+        }
+        
+        .form-success {
+            background-color: rgba(46, 204, 113, 0.1);
+            border-radius: 8px;
+            padding: 15px;
+            margin-bottom: 20px;
+            display: none;
+        }
+        
+        .form-success i {
+            color: #2ecc71;
+            margin-right: 10px;
+        }
+        
+        @media screen and (max-width: 768px) {
+            .page-header {
+                height: 200px;
+                margin-top: 60px;
+            }
+            
+            .page-header h1 {
+                font-size: 3rem;
+            }
+            
+            .auth-container {
+                padding: 30px 20px;
+            }
+            
+            .auth-form .form-footer {
+                flex-direction: column;
+                gap: 15px;
+            }
+            
+            .auth-social {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- En-tête du site -->
+    <header style="background: linear-gradient(45deg, rgba(74, 124, 89, 0.8), rgba(58, 99, 72, 0.8)); backdrop-filter: blur(5px);">
+        <div class="container">
+            <div class="header-top">
+                <div class="contact-info">
+                    <!-- Numéro et email supprimés -->
+                </div>
+                <div class="social-media">
+                    <!-- Logo Instagram et bouton connexion supprimés -->
+                </div>
+            </div>
+            <div class="main-header">
+                <div class="logo">
+                    <a href="../../index.html">
+                        <h1 style="font-family: 'Playfair Display', serif; font-weight: 700; font-size: 2.8rem; color: #ffffff; text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2); letter-spacing: 1px; margin-bottom: 5px;">L'instant de <span style="color: #ffffff;">Doriane</span></h1>
+                        <p style="font-family: 'Poppins', sans-serif; color: #000000; font-size: 1.4rem; font-style: italic; letter-spacing: 1px;">Institut d'esthétique</p>
+                    </a>
+                </div>
+                <nav class="main-nav">
+                    <button class="mobile-menu-toggle" aria-label="Menu">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </button>
+                    <ul class="nav-links">
+                        <li><a href="../../index.html">Accueil</a></li>
+                        <li><a href="../services/index.html">Nos services</a></li>
+                        <li><a href="../tarifs/index.html">Tarifs</a></li>
+                        <li><a href="../galerie/index.html">Galerie</a></li>
+                        <li><a href="../a-propos/index.html">Valeurs</a></li>
+                        <li><a href="../contact/index.html">Contact</a></li>
+                        <li><a href="inscription.html" class="active">Compte</a></li>
+                    </ul>
+                </nav>
+                <div class="cta-button">
+                    <a href="../contact/index.html#reservation" class="btn btn-primary">Réserver</a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Bannière de page -->
+    <div class="page-header main-content">
+        <div class="container">
+            <h1 class="animate-fade-up modern-title">Créer un compte</h1>
+            <div class="subtitle animate-fade-up delay-100">Rejoignez notre communauté beauté</div>
+        </div>
+    </div>
+
+    <!-- Contenu principal -->
+    <main class="auth-content">
+        <div class="container">
+            <div class="auth-container animate-fade-up">
+                <div class="auth-header">
+                    <h2>Inscription</h2>
+                    <p>Créez votre compte pour profiter d'avantages exclusifs</p>
+                </div>
+                
+                <div class="form-success">
+                    <i class="fas fa-check-circle"></i> Votre compte a été créé avec succès ! Vous allez être redirigé vers la page de connexion.
+                </div>
+                
+                <form class="auth-form" id="signup-form">
+                    <div class="form-group">
+                        <label for="fullname">Nom complet</label>
+                        <input type="text" id="fullname" name="fullname" required>
+                        <div class="form-error" id="fullname-error">Veuillez entrer votre nom complet</div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="email">Adresse e-mail</label>
+                        <input type="email" id="email" name="email" required>
+                        <div class="form-error" id="email-error">Veuillez entrer une adresse e-mail valide</div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="phone">Numéro de téléphone</label>
+                        <input type="tel" id="phone" name="phone" required>
+                        <div class="form-error" id="phone-error">Veuillez entrer un numéro de téléphone valide</div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="password">Mot de passe</label>
+                        <div class="password-field">
+                            <input type="password" id="password" name="password" required>
+                            <i class="fas fa-eye toggle-password" id="toggle-password"></i>
+                        </div>
+                        <div class="form-error" id="password-error">Le mot de passe doit contenir au moins 8 caractères</div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="confirm-password">Confirmer le mot de passe</label>
+                        <div class="password-field">
+                            <input type="password" id="confirm-password" name="confirm-password" required>
+                            <i class="fas fa-eye toggle-password" id="toggle-confirm-password"></i>
+                        </div>
+                        <div class="form-error" id="confirm-password-error">Les mots de passe ne correspondent pas</div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label class="checkbox-label">
+                            <input type="checkbox" id="terms" name="terms" required>
+                            J'accepte les <a href="../privacy-policy.html">conditions générales d'utilisation</a>
+                        </label>
+                        <div class="form-error" id="terms-error">Vous devez accepter les conditions générales</div>
+                    </div>
+                    
+                    <button type="submit" class="btn-primary">Créer mon compte</button>
+                </form>
+                
+                <div class="auth-separator">
+                    <div class="line"></div>
+                    <div class="text">ou inscrivez-vous avec</div>
+                    <div class="line"></div>
+                </div>
+                
+                <div class="auth-social">
+                    <button class="google">
+                        <i class="fab fa-google"></i> Google
+                    </button>
+                    <button class="facebook">
+                        <i class="fab fa-facebook-f"></i> Facebook
+                    </button>
+                </div>
+                
+                <div class="auth-switch">
+                    <p>Vous avez déjà un compte ? <a href="connexion.html">Connectez-vous</a></p>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Pied de page -->
+    <footer class="site-footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                </div>
+                <div class="footer-links">
+                    <h4>Liens rapides</h4>
+                    <ul>
+                        <li><a href="../../index.html">Accueil</a></li>
+                        <li><a href="../services/index.html">Services</a></li>
+                        <li><a href="../tarifs/index.html">Tarifs</a></li>
+                        <li><a href="../galerie/index.html">Galerie</a></li>
+                        <li><a href="../a-propos/index.html">À propos</a></li>
+                        <li><a href="../contact/index.html">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-services">
+                    <h4>Nos services</h4>
+                    <ul>
+                        <li><a href="../services/index.html#epilation">Épilation</a></li>
+                        <li><a href="../services/index.html#manucure">Manucure & Pédicure</a></li>
+                        <li><a href="../tarifs/index.html">Voir les tarifs</a></li>
+                    </ul>
+                </div>
+                <div class="footer-contact">
+                    <h4>Contact</h4>
+                    <ul>
+                        <li><i class="fas fa-map-marker-alt"></i> 14 rue Henri Germain, 06110 Le Cannet</li>
+                        <li><i class="fas fa-phone-alt"></i> <a href="tel:+33762671020">07.62.67.10.20</a></li>
+                        <li><i class="fas fa-envelope"></i> <a href="mailto:linstantdedoriane@yahoo.com">linstantdedoriane@yahoo.com</a></li>
+                        <li><i class="fas fa-clock"></i> Lundi: 9h - 13h<br>Mardi à Samedi: 9h - 19h<br>Service à domicile disponible</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <div class="copyright">
+                    <p>&copy; 2025 <strong>L'instant de Doriane</strong> <span class="droits">Tous droits réservés</span> <a href="../privacy-policy.html">Politique de confidentialité</a></p>
+                </div>
+                <div class="footer-social">
+                    <a href="https://www.instagram.com/linstantdedoriane_/" aria-label="Instagram" target="_blank"><i class="fab fa-instagram"></i></a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Bouton retour en haut -->
+    <a href="#" class="back-to-top" aria-label="Retour en haut"><i class="fas fa-chevron-up"></i></a>
+
+    <!-- Scripts -->
+    <script src="../../js/script.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Gestion de l'affichage/masquage des mots de passe
+            const togglePassword = document.getElementById('toggle-password');
+            const toggleConfirmPassword = document.getElementById('toggle-confirm-password');
+            const passwordInput = document.getElementById('password');
+            const confirmPasswordInput = document.getElementById('confirm-password');
+            
+            togglePassword.addEventListener('click', function() {
+                const type = passwordInput.getAttribute('type') === 'password' ? 'text' : 'password';
+                passwordInput.setAttribute('type', type);
+                this.classList.toggle('fa-eye');
+                this.classList.toggle('fa-eye-slash');
+            });
+            
+            toggleConfirmPassword.addEventListener('click', function() {
+                const type = confirmPasswordInput.getAttribute('type') === 'password' ? 'text' : 'password';
+                confirmPasswordInput.setAttribute('type', type);
+                this.classList.toggle('fa-eye');
+                this.classList.toggle('fa-eye-slash');
+            });
+            
+            // Validation du formulaire
+            const signupForm = document.getElementById('signup-form');
+            const fullnameInput = document.getElementById('fullname');
+            const emailInput = document.getElementById('email');
+            const phoneInput = document.getElementById('phone');
+            const termsCheckbox = document.getElementById('terms');
+            
+            const fullnameError = document.getElementById('fullname-error');
+            const emailError = document.getElementById('email-error');
+            const phoneError = document.getElementById('phone-error');
+            const passwordError = document.getElementById('password-error');
+            const confirmPasswordError = document.getElementById('confirm-password-error');
+            const termsError = document.getElementById('terms-error');
+            
+            const formSuccess = document.querySelector('.form-success');
+            
+            signupForm.addEventListener('submit', function(e) {
+                e.preventDefault();
+                
+                let isValid = true;
+                
+                // Validation du nom
+                if (fullnameInput.value.trim() === '') {
+                    fullnameError.style.display = 'block';
+                    isValid = false;
+                } else {
+                    fullnameError.style.display = 'none';
+                }
+                
+                // Validation de l'email
+                const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+                if (!emailRegex.test(emailInput.value)) {
+                    emailError.style.display = 'block';
+                    isValid = false;
+                } else {
+                    emailError.style.display = 'none';
+                }
+                
+                // Validation du téléphone
+                const phoneRegex = /^[0-9]{10}$/;
+                if (!phoneRegex.test(phoneInput.value.replace(/\s/g, ''))) {
+                    phoneError.style.display = 'block';
+                    isValid = false;
+                } else {
+                    phoneError.style.display = 'none';
+                }
+                
+                // Validation du mot de passe
+                if (passwordInput.value.length < 8) {
+                    passwordError.style.display = 'block';
+                    isValid = false;
+                } else {
+                    passwordError.style.display = 'none';
+                }
+                
+                // Validation de la confirmation du mot de passe
+                if (passwordInput.value !== confirmPasswordInput.value) {
+                    confirmPasswordError.style.display = 'block';
+                    isValid = false;
+                } else {
+                    confirmPasswordError.style.display = 'none';
+                }
+                
+                // Validation des conditions générales
+                if (!termsCheckbox.checked) {
+                    termsError.style.display = 'block';
+                    isValid = false;
+                } else {
+                    termsError.style.display = 'none';
+                }
+                
+                // Si le formulaire est valide
+                if (isValid) {
+                    // Ici, vous pourriez envoyer les données à un serveur
+                    // Pour l'instant, nous simulons une inscription réussie
+                    formSuccess.style.display = 'block';
+                    signupForm.reset();
+                    
+                    // Redirection vers la page de connexion après 3 secondes
+                    setTimeout(function() {
+                        window.location.href = 'connexion.html';
+                    }, 3000);
+                }
+            });
+        });
+    </script>
+</body>
+</html>

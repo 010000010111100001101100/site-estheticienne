@@ -2,6 +2,50 @@
 <html lang="fr">
 <head>
     <meta charset="UTF-8">
+    <style>
+
+        
+        /* Styles pour le lien de connexion */
+        .login-link {
+            display: flex;
+            align-items: center;
+            background: linear-gradient(45deg, var(--primary-color), var(--secondary-color));
+            padding: 8px 15px;
+            border-radius: 25px;
+            font-size: 1.5rem;
+            margin-left: 20px;
+            transition: all 0.3s ease;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+            color: white;
+            font-weight: 500;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+        }
+        
+        .login-link i {
+            margin-right: 8px;
+            font-size: 1.6rem;
+            background: rgba(255, 255, 255, 0.2);
+            width: 25px;
+            height: 25px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+        }
+        
+        .login-link:hover {
+            background: linear-gradient(45deg, var(--secondary-color), var(--primary-color));
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15);
+        }
+        
+        /* Style pour le nom dans le pied de page */
+        .footer-logo h3 {
+            color: #ff00ff !important;
+            font-weight: bold !important;
+        }
+    </style>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Découvrez L'instant de Doriane - Institut d'esthétique au Cannet, notre histoire et notre équipe">
     <title>À propos - L'instant de Doriane</title>
@@ -49,6 +93,15 @@
             width: 100%;
             border-radius: var(--border-radius);
             box-shadow: var(--box-shadow);
+        }
+        
+        .founder-caption {
+            text-align: center;
+            margin-top: 15px;
+            font-style: italic;
+            font-weight: 500;
+            color: var(--dark);
+            font-size: 1.6rem;
         }
         
         .about-text {
@@ -109,17 +162,13 @@
         }
         
         .value-item {
-            background-color: var(--white);
+            background-color: rgba(212, 175, 55, 0.5);
             border-radius: var(--border-radius);
             box-shadow: var(--box-shadow);
             padding: 30px;
-            transition: var(--transition);
         }
         
-        .value-item:hover {
-            transform: translateY(-10px);
-            box-shadow: var(--box-shadow-hover);
-        }
+
         
         .value-icon {
             font-size: 4rem;
@@ -352,22 +401,22 @@
 </head>
 <body>
     <!-- En-tête du site -->
-    <header>
+    <header style="background: linear-gradient(45deg, rgba(74, 124, 89, 0.8), rgba(58, 99, 72, 0.8)); backdrop-filter: blur(5px);">
         <div class="container">
             <div class="header-top">
                 <div class="contact-info">
-                    <a href="tel:+33762671020"><i class="fas fa-phone"></i> 07.62.67.10.20</a>
-                    <a href="mailto:contact@beaute-elegance.fr"><i class="fas fa-envelope"></i> contact@beaute-elegance.fr</a>
+                    <!-- Numéro et email supprimés -->
                 </div>
                 <div class="social-media">
-                    <a href="https://www.instagram.com/linstantdedoriane_/" aria-label="Instagram" target="_blank"><i class="fab fa-instagram"></i></a>
+                    <!-- Logo Instagram supprimé -->
+                    <a href="../compte/connexion.html" class="login-link"><i class="fas fa-user"></i> <span style="color: #ffffff;">Connexion</span></a>
                 </div>
             </div>
             <div class="main-header">
                 <div class="logo">
                     <a href="../../index.html">
-                        <h1>L'instant de Doriane</h1>
-                        <p>Institut d'esthétique</p>
+                        <h1 style="font-family: 'Playfair Display', serif; font-weight: 700; font-size: 2.8rem; color: #ffffff; text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2); letter-spacing: 1px; margin-bottom: 5px;">L'instant de <span style="color: #ffffff;">Doriane</span></h1>
+                        <p style="font-family: 'Poppins', sans-serif; color: #000000; font-size: 1.4rem; font-style: italic; letter-spacing: 1px;">Institut d'esthétique</p>
                     </a>
                 </div>
                 <nav class="main-nav">
@@ -381,7 +430,7 @@
                         <li><a href="../services/index.html">Nos services</a></li>
                         <li><a href="../tarifs/index.html">Tarifs</a></li>
                         <li><a href="../galerie/index.html">Galerie</a></li>
-                        <li><a href="../a-propos/index.html" class="active">À propos</a></li>
+                        <li><a href="../a-propos/index.html" class="active">Valeurs</a></li>
                         <li><a href="../contact/index.html">Contact</a></li>
                     </ul>
                 </nav>
@@ -393,9 +442,10 @@
     </header>
 
     <!-- Bannière de page -->
-    <div class="page-header">
+    <div class="page-header main-content">
         <div class="container">
-            <h1>À propos de nous</h1>
+            <h1 class="animate-fade-up modern-title">À propos de nous</h1>
+            <div class="subtitle animate-fade-up delay-100">Découvrez notre univers et notre passion</div>
         </div>
     </div>
 
@@ -403,12 +453,17 @@
     <main class="about-content">
         <div class="container">
             <!-- Introduction -->
-            <section class="about-intro">
+            <section class="about-intro decorative-border texture-bg animate-fade-up" style="background-color: rgba(212, 175, 55, 0.5); pointer-events: none;">
+                <span class="corner-top-left"></span>
+                <span class="corner-top-right"></span>
+                <span class="corner-bottom-left"></span>
+                <span class="corner-bottom-right"></span>
                 <div class="about-image">
-                    <img src="../../images/team/doriane.jpg" alt="Doriane - Fondatrice de L'instant de Doriane">
+                    <img src="../../images/gallery/photoDadoo.JPG" alt="Doriane - Fondatrice de L'instant de Doriane">
+                    <p class="founder-caption">Doriane - Fondatrice de L'instant de Doriane</p>
                 </div>
                 <div class="about-text">
-                    <h2>Notre histoire</h2>
+                    <h2>Notre histoire<span class="heading-frame"></span></h2>
                     <p>Bienvenue à <strong>L'instant de Doriane</strong>, votre institut d'esthétique au cœur du Cannet. Fondé par Doriane, passionnée d'esthétique et de bien-être, notre institut est né d'une vision simple : offrir des soins de beauté personnalisés dans un cadre élégant et apaisant.</p>
                     <p>Après plusieurs années d'expérience dans le domaine de l'esthétique, Doriane a décidé de créer son propre espace où chaque cliente pourrait se sentir unique et choyée. Depuis notre ouverture, nous nous efforçons d'offrir des prestations de qualité avec des produits haut de gamme sélectionnés avec soin.</p>
                     <p>Notre équipe est composée de professionnelles qualifiées et passionnées, toujours à l'écoute de vos besoins et désirs. Nous nous formons régulièrement aux dernières techniques et tendances pour vous proposer ce qu'il y a de mieux.</p>
@@ -416,149 +471,21 @@
             </section>
             
             <!-- Nos valeurs -->
-            <section class="about-values">
-                <h2>Nos valeurs</h2>
-                <p>Chez L'instant de Doriane, nous croyons que la beauté va au-delà de l'apparence. C'est pourquoi nous nous engageons à respecter ces valeurs fondamentales dans tout ce que nous faisons.</p>
-                
-                <div class="values-grid">
-                    <div class="value-item">
-                        <div class="value-icon">
-                            <i class="fas fa-heart"></i>
-                        </div>
-                        <h3>Passion</h3>
-                        <p>Nous mettons notre passion et notre expertise au service de votre beauté et de votre bien-être.</p>
-                    </div>
-                    
-                    <div class="value-item">
-                        <div class="value-icon">
-                            <i class="fas fa-gem"></i>
-                        </div>
-                        <h3>Qualité</h3>
-                        <p>Nous utilisons exclusivement des produits de haute qualité et des techniques éprouvées pour des résultats optimaux.</p>
-                    </div>
-                    
-                    <div class="value-item">
-                        <div class="value-icon">
-                            <i class="fas fa-user"></i>
-                        </div>
-                        <h3>Personnalisation</h3>
-                        <p>Chaque soin est adapté à vos besoins spécifiques, car vous êtes unique et méritez un traitement sur mesure.</p>
-                    </div>
-                    
-                    <div class="value-item">
-                        <div class="value-icon">
-                            <i class="fas fa-leaf"></i>
-                        </div>
-                        <h3>Respect</h3>
-                        <p>Nous respectons votre peau, votre corps et l'environnement en privilégiant des produits naturels et éco-responsables.</p>
-                    </div>
+            <section class="about-values decorative-border animate-fade-up delay-200" style="background-color: rgba(212, 175, 55, 0.5); pointer-events: none;">
+                <span class="corner-top-left"></span>
+                <span class="corner-top-right"></span>
+                <span class="corner-bottom-left"></span>
+                <span class="corner-bottom-right"></span>
+                <h2>Salon de Beauté<span class="heading-frame"></span></h2>
+                <div class="values-content">
+                    <p>Un espace beauté à domicile, où l'ambiance est chaleureuse et conviviale.</p>
+                    <p>Un lieu qui me tient à cœur, pensé pour que vous vous sentiez à l'aise et détendue.</p>
+                    <p>Experte depuis plus de 10 ans, j'ai acquis une solide expérience en me formant chaque année afin de me perfectionner au rythme des nouvelles techniques.</p>
+                    <p>Laissez-vous guider par mon professionnalisme et mon engagement, pour un véritable moment de détente.</p>
                 </div>
             </section>
             
-            <!-- Notre équipe -->
-            <section class="team-section">
-                <h2>Notre équipe</h2>
-                <p>Découvrez les professionnelles passionnées qui composent l'équipe de L'instant de Doriane.</p>
-                
-                <div class="team-grid">
-                    <div class="team-member">
-                        <div class="team-image">
-                            <img src="../../images/team/doriane.jpg" alt="Doriane">
-                        </div>
-                        <div class="team-info">
-                            <h3>Doriane</h3>
-                            <div class="position">Fondatrice & Esthéticienne</div>
-                            <p>Passionnée d'esthétique depuis plus de 10 ans, Doriane est spécialisée dans les soins du visage et les extensions de cils.</p>
-                            <div class="team-social">
-                                <a href="https://www.instagram.com/linstantdedoriane_/" aria-label="Instagram" target="_blank"><i class="fab fa-instagram"></i></a>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <div class="team-member">
-                        <div class="team-image">
-                            <img src="../../images/team/sophie.jpg" alt="Sophie">
-                        </div>
-                        <div class="team-info">
-                            <h3>Sophie</h3>
-                            <div class="position">Esthéticienne</div>
-                            <p>Experte en soins du corps et massages, Sophie vous fera vivre un moment de détente absolue.</p>
-                            <div class="team-social">
-                                <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <div class="team-member">
-                        <div class="team-image">
-                            <img src="../../images/team/julie.jpg" alt="Julie">
-                        </div>
-                        <div class="team-info">
-                            <h3>Julie</h3>
-                            <div class="position">Prothésiste ongulaire</div>
-                            <p>Spécialiste des ongles, Julie réalise des manucures et pédicures impeccables ainsi que des poses de vernis semi-permanent.</p>
-                            <div class="team-social">
-                                <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </section>
-            
-            <!-- Témoignages -->
-            <section class="testimonials-section">
-                <div class="container">
-                    <h2>Ce que nos clientes disent</h2>
-                    <p>Découvrez les témoignages de nos clientes satisfaites.</p>
-                    
-                    <div class="testimonials-grid">
-                        <div class="testimonial-item">
-                            <div class="testimonial-text">
-                                <p>Je suis cliente régulière depuis l'ouverture et je ne peux que recommander L'instant de Doriane. L'ambiance est chaleureuse, les soins sont de qualité et le personnel est à l'écoute. Un vrai moment de détente !</p>
-                            </div>
-                            <div class="testimonial-author">
-                                <div class="author-image">
-                                    <img src="../../images/testimonials/client-1.jpg" alt="Marie">
-                                </div>
-                                <div class="author-info">
-                                    <h4>Marie L.</h4>
-                                    <div class="date">Avril 2025</div>
-                                </div>
-                            </div>
-                        </div>
-                        
-                        <div class="testimonial-item">
-                            <div class="testimonial-text">
-                                <p>J'ai testé le soin visage anti-âge et j'en suis ravie ! Ma peau est plus ferme et lumineuse. Doriane a su me conseiller les produits adaptés à mon type de peau. Je reviendrai sans hésiter.</p>
-                            </div>
-                            <div class="testimonial-author">
-                                <div class="author-image">
-                                    <img src="../../images/testimonials/client-2.jpg" alt="Sophie">
-                                </div>
-                                <div class="author-info">
-                                    <h4>Sophie D.</h4>
-                                    <div class="date">Mars 2025</div>
-                                </div>
-                            </div>
-                        </div>
-                        
-                        <div class="testimonial-item">
-                            <div class="testimonial-text">
-                                <p>Les extensions de cils réalisées par Doriane sont parfaites ! Naturelles et légères, elles tiennent très bien. L'institut est très propre et l'accueil est toujours agréable. Je recommande vivement !</p>
-                            </div>
-                            <div class="testimonial-author">
-                                <div class="author-image">
-                                    <img src="../../images/testimonials/client-3.jpg" alt="Laure">
-                                </div>
-                                <div class="author-info">
-                                    <h4>Laure M.</h4>
-                                    <div class="date">Février 2025</div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </section>
+
         </div>
     </main>
 
@@ -567,8 +494,6 @@
         <div class="container">
             <div class="footer-content">
                 <div class="footer-logo">
-                    <h3>L'instant de Doriane</h3>
-                    <p>Institut d'esthétique</p>
                 </div>
                 <div class="footer-links">
                     <h4>Liens rapides</h4>
@@ -584,10 +509,9 @@
                 <div class="footer-services">
                     <h4>Nos services</h4>
                     <ul>
-                        <li><a href="../services/index.html">Soins du visage</a></li>
-                        <li><a href="../services/index.html">Soins du corps</a></li>
-                        <li><a href="../services/index.html">Épilation</a></li>
-                        <li><a href="../services/index.html">Manucure & Pédicure</a></li>
+                        <li><a href="../services/index.html#epilation">Épilation</a></li>
+                        <li><a href="../services/index.html#manucure">Manucure & Pédicure</a></li>
+                        <li><a href="../tarifs/index.html">Voir les tarifs</a></li>
                     </ul>
                 </div>
                 <div class="footer-contact">
@@ -595,14 +519,14 @@
                     <ul>
                         <li><i class="fas fa-map-marker-alt"></i> 14 rue Henri Germain, 06110 Le Cannet</li>
                         <li><i class="fas fa-phone-alt"></i> <a href="tel:+33762671020">07.62.67.10.20</a></li>
-                        <li><i class="fas fa-envelope"></i> <a href="mailto:contact@beaute-elegance.fr">contact@beaute-elegance.fr</a></li>
+                        <li><i class="fas fa-envelope"></i> <a href="mailto:linstantdedoriane@yahoo.com">linstantdedoriane@yahoo.com</a></li>
                         <li><i class="fas fa-clock"></i> Lundi: 9h - 13h<br>Mardi à Samedi: 9h - 19h<br>Service à domicile disponible</li>
                     </ul>
                 </div>
             </div>
             <div class="footer-bottom">
                 <div class="copyright">
-                    <p>&copy; 2025 L'instant de Doriane. Tous droits réservés. <a href="../privacy-policy.html">Politique de confidentialité</a></p>
+                    <p>&copy; 2025 <strong>L'instant de Doriane</strong> <span class="droits">Tous droits réservés</span> <a href="../privacy-policy.html">Politique de confidentialité</a></p>
                 </div>
                 <div class="footer-social">
                     <a href="https://www.instagram.com/linstantdedoriane_/" aria-label="Instagram" target="_blank"><i class="fab fa-instagram"></i></a>
@@ -611,7 +535,12 @@
         </div>
     </footer>
 
+    <!-- Bouton retour en haut -->
+    <a href="#" class="back-to-top" aria-label="Retour en haut"><i class="fas fa-chevron-up"></i></a>
+
     <!-- Scripts -->
     <script src="../../js/script.js"></script>
+    <script src="../../js/scroll-down.js"></script>
+    <script src="../../js/animations.js"></script>
 </body>
 </html>
