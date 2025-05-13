@@ -62,7 +62,7 @@
         }
     </style>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Contactez L'instant de Doriane - Institut d'esthétique au Cannet pour prendre rendez-vous ou obtenir des informations">
+    <meta name="description" content="Contactez L'instant de Doriane - Salon de beauté à Cannes pour prendre rendez-vous ou obtenir des informations">
     <title>Contact - L'instant de Doriane</title>
     <link rel="stylesheet" href="../../css/style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
@@ -463,62 +463,10 @@
                     margin-bottom: 20px;
                 }
                 
-                .category-group h5 {
-                    font-size: 1.4rem;
-                    color: var(--medium);
-                    margin-bottom: 10px;
-                    font-weight: 500;
-                }
+                /* ... */
                 
-                .category-group ul {
-                    list-style: none;
-                    padding: 0;
-                }
-                
-                .category-group li {
-                    margin-bottom: 8px;
-                }
-                
-                .category-group a {
-                    color: var(--dark);
-                    text-decoration: none;
-                    transition: var(--transition);
-                }
-                
-                .category-group a:hover {
-                    color: var(--primary-color);
-                }
-            
-            .page-header {
-                height: 200px;
-            }
-            
-            .info-icon, .direction-icon {
-                width: 50px;
-                height: 50px;
-                font-size: 1.8rem;
-            }
-            
-            .social-link {
-                padding: 10px 15px;
-                font-size: 1.6rem;
-            }
-            
-            .social-link i {
-                font-size: 2rem;
-            }
-            
-            .page-header h1 {
-                font-size: 3rem;
-            }
-            
-            .contact-content {
-                padding: 50px 0;
-            }
-            
-            .map-container {
-                height: 350px;
-            }
+        .map-container {
+            height: 350px;
         }
     </style>
 </head>
@@ -532,14 +480,14 @@
                 </div>
                 <div class="social-media">
                     <!-- Logo Instagram supprimé -->
-                    <a href="../compte/connexion.html" class="login-link"><i class="fas fa-user"></i> <span style="color: #ffffff;">Connexion</span></a>
+
                 </div>
             </div>
             <div class="main-header">
                 <div class="logo">
                     <a href="../../index.html">
                         <h1 style="font-family: 'Playfair Display', serif; font-weight: 700; font-size: 2.8rem; color: #ffffff; text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2); letter-spacing: 1px; margin-bottom: 5px;">L'instant de <span style="color: #ffffff;">Doriane</span></h1>
-                        <p style="font-family: 'Poppins', sans-serif; color: #000000; font-size: 1.4rem; font-style: italic; letter-spacing: 1px;">Institut d'esthétique</p>
+                        <p style="font-family: 'Poppins', sans-serif; color: #000000; font-size: 1.4rem; font-style: italic; letter-spacing: 1px;">Salon de beauté</p>
                     </a>
                 </div>
                 <nav class="main-nav">
@@ -555,10 +503,16 @@
                         <li><a href="../galerie/index.html">Galerie</a></li>
                         <li><a href="../a-propos/index.html">Valeurs</a></li>
                         <li><a href="../contact/index.html" class="active">Contact</a></li>
+                        <li><a href="https://www.planity.com/linstant-de-doriane-06400-cannes" target="_blank" class="reservation-btn" style="background: linear-gradient(45deg, #4a7c59, #3a6348); padding: 10px 15px; border-radius: 50px; color: white; font-weight: 600;"><i class="far fa-calendar-alt" style="margin-right: 5px;"></i> Réserver</a></li>
+                    <style>
+                        .reservation-btn::after {
+                            display: none !important;
+                        }
+                    </style>
                     </ul>
                 </nav>
-                <div class="cta-button">
-                    <a href="#reservation" class="btn btn-primary">Réserver</a>
+                <div class="cta-button" style="display: none;">
+                    <!-- Bouton de réservation supprimé pour éviter la duplication -->
                 </div>
             </div>
         </div>
@@ -587,7 +541,7 @@
                         <i class="fas fa-home" style="color: #ffffff; font-size: 30px; margin-right: 20px;"></i>
                         <div class="info-text">
                             <h3 style="color: #d4af37; margin-bottom: 10px; font-size: 18px;">Adresse</h3>
-                            <p style="color: #ffffff; font-size: 16px; line-height: 1.5; font-weight: bold;">14 rue Henri Germain<br>06110 Le Cannet<br>France</p>
+                            <p style="color: #ffffff; font-size: 16px; line-height: 1.5; font-weight: bold;">9 boulevard Carnot<br>06400 Cannes<br>France</p>
                         </div>
                     </div>
                     
@@ -611,7 +565,7 @@
                         <i class="far fa-clock" style="color: #ffffff; font-size: 30px; margin-right: 20px;"></i>
                         <div class="info-text">
                             <h3 style="color: #d4af37; margin-bottom: 10px; font-size: 18px;">Horaires d'ouverture</h3>
-                            <p style="color: #ffffff; font-size: 16px; line-height: 1.5; font-weight: bold;">Lundi: 9h - 13h<br>Mardi à Samedi: 9h - 19h</p>
+                            <p style="color: #ffffff; font-size: 16px; line-height: 1.5; font-weight: bold;">Lundi: 9h - 14h<br>Mardi au Samedi: 10h - 19h</p>
                         </div>
                     </div>
                     
@@ -669,118 +623,21 @@
                 </div>
             </div>
             
-            <!-- Section réservation -->
-            <section class="reservation-section animate-fade-up decorative-border" id="reservation" style="background-color: rgba(212, 175, 55, 0.5); padding: 30px; border-radius: 5px; margin-top: 50px;">
+            <!-- Section réservation avec Planity -->
+            <section class="reservation-section animate-fade-up decorative-border" id="reservation" style="background-color: rgba(212, 175, 55, 0.5); padding: 50px; border-radius: 5px; margin-top: 50px; text-align: center;">
                 <span class="corner-top-left"></span>
                 <span class="corner-top-right"></span>
                 <span class="corner-bottom-left"></span>
                 <span class="corner-bottom-right"></span>
                 <div class="container">
-                    <h2 style="color: #ffffff;">Réservation<span class="heading-frame"></span></h2>
+                    <h2 style="color: #ffffff; margin-bottom: 25px;">Réservation<span class="heading-frame"></span></h2>
                     <div class="reservation-intro">
-                        <p style="color: #ffffff;">Prenez rendez-vous facilement pour vos soins esthétiques à L'instant de Doriane.</p>
+                        <p style="color: #ffffff; font-size: 1.2rem; margin-bottom: 30px;">Réservez en quelques clics tous vos soins de beauté directement sur notre plateforme en ligne.</p>
                     </div>
-                    <div class="reservation-container">
-                        <div class="reservation-info">
-                            <h3 style="color: #d4af37; margin-bottom: 10px; font-size: 18px;">Comment réserver ?</h3>
-                            <div class="reservation-options decorative-border texture-bg">
-                                <span class="corner-top-left"></span>
-                                <span class="corner-top-right"></span>
-                                <span class="corner-bottom-left"></span>
-                                <span class="corner-bottom-right"></span>
-                                <div class="method-card">
-                                    <div class="method-icon"><i class="fas fa-phone-alt"></i></div>
-                                    <div class="method-details">
-                                        <h4>Par téléphone</h4>
-                                        <p>Appelez-nous directement au :</p>
-                                        <a href="tel:+33762671020" class="contact-link">07.62.67.10.20</a>
-                                    </div>
-                                </div>
-                                
-                                <div class="method-card">
-                                    <div class="method-icon"><i class="fab fa-instagram"></i></div>
-                                    <div class="method-details">
-                                        <h4>Via Instagram</h4>
-                                        <p>Envoyez-nous un message sur :</p>
-                                        <a href="https://www.instagram.com/linstantdedoriane_/" target="_blank" class="contact-link">@linstantdedoriane_</a>
-                                    </div>
-                                </div>
-                                
-                                <div class="method-card">
-                                    <div class="method-icon"><i class="fas fa-envelope"></i></div>
-                                    <div class="method-details">
-                                        <h4>Par email</h4>
-                                        <p>Écrivez-nous à :</p>
-                                        <a href="mailto:linstantdedoriane@yahoo.com" class="contact-link">linstantdedoriane@yahoo.com</a>
-                                    </div>
-                                </div>
-                            </div>
-                            
-                            <div class="form-intro">
-                                <h2 style="color: #ffffff;">Formulaire de contact<span class="heading-frame"></span></h2>
-                                <p style="color: #000000;">Ou utilisez notre formulaire en ligne ci-contre pour demander un rendez-vous :</p>
-                            </div>
-                        </div>
-                        <div class="reservation-form">
-                            <form action="#" method="post" id="booking-form">
-                                <div class="form-row">
-                                    <div class="form-group">
-                                        <label for="booking-name">Nom complet</label>
-                                        <input type="text" id="booking-name" name="booking-name" class="form-control" required>
-                                    </div>
-                                    
-                                    <div class="form-group">
-                                        <label for="booking-phone">Téléphone</label>
-                                        <input type="tel" id="booking-phone" name="booking-phone" class="form-control" required>
-                                    </div>
-                                </div>
-                                
-                                <div class="form-group">
-                                    <label for="booking-email">Email</label>
-                                    <input type="email" id="booking-email" name="booking-email" class="form-control" required>
-                                </div>
-                                
-                                <div class="form-row">
-                                    <div class="form-group">
-                                        <label for="booking-service">Service souhaité</label>
-                                        <select id="booking-service" name="booking-service" class="form-control" required>
-                                            <option value="">Sélectionnez un service</option>
-                                            <option value="soin-visage">Soin du visage</option>
-                                            <option value="soin-corps">Soin du corps</option>
-                                            <option value="epilation">Épilation</option>
-                                            <option value="manucure">Manucure</option>
-                                            <option value="pedicure">Pédicure</option>
-                                            <option value="extensions-cils">Extensions de cils</option>
-                                            <option value="autre">Autre</option>
-                                        </select>
-                                    </div>
-                                    
-                                    <div class="form-group">
-                                        <label for="booking-date">Date souhaitée</label>
-                                        <input type="date" id="booking-date" name="booking-date" class="form-control" required>
-                                    </div>
-                                </div>
-                                
-                                <div class="form-group">
-                                    <label for="booking-time">Horaire préféré</label>
-                                    <select id="booking-time" name="booking-time" class="form-control" required>
-                                        <option value="">Sélectionnez un horaire</option>
-                                        <option value="matin">Matin (9h - 12h)</option>
-                                        <option value="midi">Midi (12h - 14h)</option>
-                                        <option value="apres-midi">Après-midi (14h - 17h)</option>
-                                        <option value="soir">Soir (17h - 19h)</option>
-                                    </select>
-                                </div>
-                                
-                                <div class="form-group">
-                                    <label for="booking-message">Message (facultatif)</label>
-                                    <textarea id="booking-message" name="booking-message" class="form-control" rows="3"></textarea>
-                                </div>
-                                
-                                <button type="submit" class="btn btn-primary">Demander un rendez-vous</button>
-                            </form>
-                        </div>
-                    </div>
+                    <a href="https://www.planity.com/linstant-de-doriane-06400-cannes" target="_blank" class="btn btn-primary" style="font-size: 1.4rem; padding: 15px 40px; background: linear-gradient(45deg, #4a7c59, #3a6348); border: none; border-radius: 50px; color: white; text-transform: uppercase; letter-spacing: 1px; box-shadow: 0 4px 15px rgba(0,0,0,0.2); transition: all 0.3s ease;">
+                        <i class="far fa-calendar-alt" style="margin-right: 10px;"></i> Réserver en ligne
+                    </a>
+                    <p style="color: #ffffff; margin-top: 20px; font-style: italic;">Réservez en quelques clics sur notre plateforme Planity</p>
                 </div>
             </section>
             
@@ -789,7 +646,7 @@
                 <div class="container">
                     <h2 style="color: #ffffff;">Nous trouver<span class="heading-frame"></span></h2>
                     <div class="map-container">
-                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2889.8548582308396!2d7.0039232157707!3d43.57784577912375!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x12cc2bcfb82c889d%3A0x40819a5fd979a70!2s14%20Rue%20Henri%20Germain%2C%2006110%20Le%20Cannet%2C%20France!5e0!3m2!1sfr!2sfr!4v1714577204566!5m2!1sfr!2sfr" width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2889.9066126851747!2d7.0126699!3d43.5767626!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x12ce8198d7e3a6c7%3A0x7e7c5f45f7e5e9c9!2sPlace%20Vauban%2C%2006400%20Cannes!5e0!3m2!1sfr!2sfr!4v1714577204566!5m2!1sfr!2sfr" width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
                     </div>
                     <div class="map-directions decorative-border">
                         <span class="corner-top-left"></span>
@@ -802,14 +659,14 @@
                                 <div class="direction-icon" style="margin-right: 15px;"><i class="fas fa-car" style="color: #4a7c59; font-size: 24px;"></i></div>
                                 <div class="direction-text">
                                     <h4 style="color: #000000; margin-bottom: 5px; font-size: 16px;">En voiture</h4>
-                                    <p style="color: #ffffff;">Parking gratuit à proximité. Stationnement possible dans les rues adjacentes.</p>
+                                    <p style="color: #ffffff;">Parking Cannes Saint-Nicolas - EFFIA à proximité (1 Rue de Mimont, ouvert 24h/24). Stationnement également possible dans les rues adjacentes.</p>
                                 </div>
                             </div>
                             <div class="direction-item">
                                 <div class="direction-icon" style="margin-right: 15px;"><i class="fas fa-bus" style="color: #4a7c59; font-size: 24px;"></i></div>
                                 <div class="direction-text">
                                     <h4 style="color: #000000; margin-bottom: 5px; font-size: 16px;">En bus</h4>
-                                    <p style="color: #ffffff;">Lignes 1 et 4 - Arrêt "Henri Germain" à 50m de l'institut.</p>
+                                    <p style="color: #ffffff;">Lignes 1, 2, 12, 35 et B - Arrêt "Place Vauban" à proximité immédiate de l'institut.</p>
                                 </div>
                             </div>
                         </div>
@@ -832,27 +689,27 @@
                         <span class="corner-bottom-right"></span>
                             <div class="hours-item">
                                 <div class="day">Lundi</div>
-                                <div class="time">9h - 13h</div>
+                                <div class="time">9h - 14h</div>
                             </div>
                             <div class="hours-item">
                                 <div class="day">Mardi</div>
-                                <div class="time">9h - 19h</div>
+                                <div class="time">10h - 19h</div>
                             </div>
                             <div class="hours-item">
                                 <div class="day">Mercredi</div>
-                                <div class="time">9h - 19h</div>
+                                <div class="time">10h - 19h</div>
                             </div>
                             <div class="hours-item">
                                 <div class="day">Jeudi</div>
-                                <div class="time">9h - 19h</div>
+                                <div class="time">10h - 19h</div>
                             </div>
                             <div class="hours-item">
                                 <div class="day">Vendredi</div>
-                                <div class="time">9h - 19h</div>
+                                <div class="time">10h - 19h</div>
                             </div>
                             <div class="hours-item">
                                 <div class="day">Samedi</div>
-                                <div class="time">9h - 19h</div>
+                                <div class="time">10h - 19h</div>
                             </div>
                             <div class="hours-item">
                                 <div class="day">Dimanche</div>
@@ -861,13 +718,7 @@
                         </div>
                         
                         <div class="hours-info">
-                            <div class="info-box service-box">
-                                <div class="info-icon"><i class="fas fa-hand-sparkles"></i></div>
-                                <div class="info-content">
-                                    <h4>Service à domicile</h4>
-                                    <p>Service à domicile disponible sur rendez-vous. Contactez-nous pour plus d'informations.</p>
-                                </div>
-                            </div>
+
                             <div class="info-box appointment-box">
                                 <div class="info-icon"><i class="fas fa-gem"></i></div>
                                 <div class="info-content">
@@ -905,18 +756,18 @@
                 <div class="footer-services">
                     <h4>Nos services</h4>
                     <ul>
-                        <li><a href="../services/index.html#epilation">Épilation</a></li>
-                        <li><a href="../services/index.html#manucure">Manucure & Pédicure</a></li>
+                        <li><a href="../services/index.html#epilation">Épilations</a></li>
+                        <li><a href="../services/index.html#manucure">Manucure & Beauté des pieds</a></li>
                         <li><a href="../tarifs/index.html">Voir les tarifs</a></li>
                     </ul>
                 </div>
                 <div class="footer-contact">
                     <h4>Contact</h4>
                     <ul>
-                        <li><i class="fas fa-map-marker-alt"></i> 14 rue Henri Germain, 06110 Le Cannet</li>
+                        <li><i class="fas fa-map-marker-alt"></i> 9 boulevard Carnot, 06400 Cannes</li>
                         <li><i class="fas fa-phone-alt"></i> <a href="tel:+33762671020">07.62.67.10.20</a></li>
                         <li><i class="fas fa-envelope"></i> <a href="mailto:linstantdedoriane@yahoo.com">linstantdedoriane@yahoo.com</a></li>
-                        <li><i class="fas fa-clock"></i> Lundi: 9h - 13h<br>Mardi à Samedi: 9h - 19h<br>Service à domicile disponible</li>
+                        <li><i class="fas fa-clock"></i> Lundi: 9h - 14h<br>Mardi au Samedi: 10h - 19h</li>
                     </ul>
                 </div>
             </div>
@@ -937,6 +788,19 @@
     <script src="../../js/animations.js"></script>
     <script>
         document.addEventListener('DOMContentLoaded', function() {
+            // Gestion du défilement vers les ancres
+            if (window.location.hash === '#reservation') {
+                setTimeout(function() {
+                    const reservationSection = document.getElementById('reservation');
+                    if (reservationSection) {
+                        window.scrollTo({
+                            top: reservationSection.offsetTop - 100, // Offset pour une meilleure visibilité
+                            behavior: 'smooth'
+                        });
+                    }
+                }, 100);
+            }
+            
             const form = document.getElementById('booking-form');
             
             form.addEventListener('submit', function(e) {
