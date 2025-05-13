@@ -632,6 +632,23 @@
                 <h2><i class="fas fa-hand-sparkles"></i> Manucure & Beauté des pieds<span class="heading-frame"></span></h2>
                 <p class="section-intro" style="color: #ffffff;">Sublimez vos mains et vos pieds avec nos soins personnalisés.</p>
                 
+                <style>
+                    #manucure .services-grid {
+                        display: grid;
+                        grid-template-columns: repeat(2, minmax(300px, 400px));
+                        gap: 30px;
+                        justify-content: center;
+                        margin: 0 auto;
+                        max-width: 900px;
+                    }
+                    @media (max-width: 768px) {
+                        #manucure .services-grid {
+                            grid-template-columns: 1fr;
+                            max-width: 400px;
+                        }
+                    }
+                </style>
+                
                 <div class="services-grid animate-fade-up">
                     <!-- Manucure Classique -->
                     <div class="service-card">
@@ -680,6 +697,24 @@
                             <p>Moment de détente pour vos pieds avec bain relaxant, exfoliation, soin des ongles et massage nourrissant.</p>
                             <div class="service-info">
                                 <span><i class="far fa-clock"></i> 60 min</span>
+                            </div>
+                        </div>
+                        <div class="service-card-footer">
+                            <a href="../contact/index.html#reservation" class="btn btn-primary">Réserver</a>
+                        </div>
+                    </div>
+                    
+                    <!-- Gel Nails -->
+                    <div class="service-card">
+                        <div class="service-card-header">
+                            <img src="../../images/gallery/photo23.jpg" alt="Gel Nails">
+                            <div class="service-category-tag">Mains & Pieds</div>
+                        </div>
+                        <div class="service-card-content">
+                            <h3>Gel Nails</h3>
+                            <p>Renforcement et embellissement des ongles avec du gel pour une tenue longue durée et un résultat brillant et naturel.</p>
+                            <div class="service-info">
+                                <span><i class="far fa-clock"></i> 75 min</span>
                             </div>
                         </div>
                         <div class="service-card-footer">

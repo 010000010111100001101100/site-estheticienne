@@ -136,6 +136,10 @@
             border-top: 3px solid transparent;
         }
         
+        .tab-btn[data-tab="tab-gel"] {
+            border-top: 3px solid transparent;
+        }
+        
         /* Styles actifs pour chaque onglet */
         .tab-btn[data-tab="tab-epilation"].active {
             background-color: #f8f1f6;
@@ -153,6 +157,12 @@
             background-color: #f6f8f1;
             color: #9cd35a;
             border-top: 3px solid #9cd35a;
+        }
+        
+        .tab-btn[data-tab="tab-gel"].active {
+            background-color: #f8f1f1;
+            color: #d35a5a;
+            border-top: 3px solid #d35a5a;
         }
         
         .tab-btn.active {
@@ -202,6 +212,11 @@
         #tab-cils {
             border-top: 3px solid #9cd35a;
             background-color: #fdfefb;
+        }
+        
+        #tab-gel {
+            border-top: 3px solid #d35a5a;
+            background-color: #fdfbfb;
         }
         
         .price-list {
@@ -406,6 +421,7 @@
                 <button class="tab-btn active" data-tab="tab-cils">Extensions de cils & Rehaussement</button>
                 <button class="tab-btn" data-tab="tab-mains">Manucure & Beauté des pieds</button>
                 <button class="tab-btn" data-tab="tab-gel">Pose de gel & Semi-permanent</button>
+                <button class="tab-btn" data-tab="tab-epilation">Épilations</button>
             </div>
             
             <div id="tab-cils" class="tab-content active">
@@ -706,6 +722,112 @@
                 </div>
             </div>
             
+            <div id="tab-epilation" class="tab-content">
+                <div class="price-category">
+                    <h2>Épilations</h2>
+                    <div class="price-list">
+                        <div class="price-item">
+                            <div class="price-name">
+                                <h3>Sourcils</h3>
+                            </div>
+                            <div class="price-value">10€</div>
+                            <div class="price-duration">15min</div>
+                        </div>
+                        
+                        <div class="price-item">
+                            <div class="price-name">
+                                <h3>Lèvre supérieure</h3>
+                            </div>
+                            <div class="price-value">8€</div>
+                            <div class="price-duration">10min</div>
+                        </div>
+                        
+                        <div class="price-item">
+                            <div class="price-name">
+                                <h3>Menton</h3>
+                            </div>
+                            <div class="price-value">8€</div>
+                            <div class="price-duration">10min</div>
+                        </div>
+                        
+                        <div class="price-item">
+                            <div class="price-name">
+                                <h3>Visage complet</h3>
+                            </div>
+                            <div class="price-value">22€</div>
+                            <div class="price-duration">30min</div>
+                        </div>
+                        
+                        <div class="price-item">
+                            <div class="price-name">
+                                <h3>Aisselles</h3>
+                            </div>
+                            <div class="price-value">12€</div>
+                            <div class="price-duration">15min</div>
+                        </div>
+                        
+                        <div class="price-item">
+                            <div class="price-name">
+                                <h3>Bras</h3>
+                            </div>
+                            <div class="price-value">18€</div>
+                            <div class="price-duration">20min</div>
+                        </div>
+                        
+                        <div class="price-item">
+                            <div class="price-name">
+                                <h3>Demi-jambes</h3>
+                            </div>
+                            <div class="price-value">20€</div>
+                            <div class="price-duration">30min</div>
+                        </div>
+                        
+                        <div class="price-item">
+                            <div class="price-name">
+                                <h3>Jambes complètes</h3>
+                            </div>
+                            <div class="price-value">30€</div>
+                            <div class="price-duration">45min</div>
+                        </div>
+                        
+                        <div class="price-item">
+                            <div class="price-name">
+                                <h3>Maillot simple</h3>
+                            </div>
+                            <div class="price-value">15€</div>
+                            <div class="price-duration">15min</div>
+                        </div>
+                        
+                        <div class="price-item">
+                            <div class="price-name">
+                                <h3>Maillot échancré</h3>
+                            </div>
+                            <div class="price-value">20€</div>
+                            <div class="price-duration">20min</div>
+                        </div>
+                        
+                        <div class="price-item">
+                            <div class="price-name">
+                                <h3>Maillot intégral</h3>
+                            </div>
+                            <div class="price-value">30€</div>
+                            <div class="price-duration">30min</div>
+                        </div>
+                        
+                        <div class="price-item">
+                            <div class="price-name">
+                                <h3>Forfait 1/2 jambes + maillot simple + aisselles</h3>
+                            </div>
+                            <div class="price-value">40€</div>
+                            <div class="price-duration">1h</div>
+                        </div>
+                        
+                        <div class="price-item">
+                            <div class="price-name">
+                                <h3>Forfait jambes complètes + maillot simple + aisselles</h3>
+                            </div>
+                            <div class="price-value">50€</div>
+                            <div class="price-duration">1h15</div>
                         </div>
                     </div>
                 </div>

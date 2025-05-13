@@ -45,6 +45,13 @@
     transition: all 0.3s ease;
 }
 
+/* Style pour les adresses email sur mobile */
+a[href^="mailto:"] {
+    word-break: break-word;
+    display: inline-block;
+    max-width: 100%;
+}
+
 /* Style spécifique pour les boutons côte à côte dans la section héro */
 .hero-buttons .btn {
     transition: all 0.3s ease;
