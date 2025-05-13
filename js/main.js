@@ -1,12 +1,8 @@
-// Script principal pour L'instant de Doriane
-
 document.addEventListener('DOMContentLoaded', function() {
-    // Toggle du menu mobile
     const mobileMenuToggle = document.querySelector('.mobile-menu-toggle');
     const navLinks = document.querySelector('.nav-links');
     const body = document.querySelector('body');
 
-    // Mettre en surbrillance le menu actif
     function highlightActiveMenu() {
         const currentPage = window.location.pathname;
         const navLinks = document.querySelectorAll('.nav-links a');
@@ -14,14 +10,11 @@ document.addEventListener('DOMContentLoaded', function() {
         navLinks.forEach(link => {
             const linkPath = new URL(link.getAttribute('href'), window.location.origin).pathname;
             
-            // Enlever la classe active de tous les liens
             link.classList.remove('active');
             
-            // Ajouter la classe active au lien correspondant à la page actuelle
             if (currentPage === linkPath) {
                 link.classList.add('active');
                 
-                // Si le lien est dans un menu déroulant, ouvrir ce menu
                 const dropdown = link.closest('.has-dropdown');
                 if (dropdown) {
                     dropdown.classList.add('active');
@@ -30,18 +23,16 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 
-    // Appeler la fonction au chargement de la page
     highlightActiveMenu();
     
     if (mobileMenuToggle) {
         mobileMenuToggle.addEventListener('click', function() {
             this.classList.toggle('active');
             navLinks.classList.toggle('active');
-            body.classList.toggle('menu-open'); // Empêche le défilement du body quand le menu est ouvert
+            body.classList.toggle('menu-open');
         });
     }
     
-    // Fermer le menu quand on clique en dehors
     document.addEventListener('click', function(e) {
         if (navLinks.classList.contains('active') && 
             !navLinks.contains(e.target) && 
@@ -52,13 +43,11 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     });
     
-    // Gestion des menus déroulants (desktop et mobile)
     const dropdownLinks = document.querySelectorAll('.has-dropdown > a');
     const dropdownMenus = document.querySelectorAll('.dropdown-menu');
     let touchStartY = 0;
     let touchEndY = 0;
     
-    // Fonction pour fermer tous les menus déroulants
     function closeAllDropdowns() {
         dropdownLinks.forEach(link => {
             link.parentNode.classList.remove('active');
@@ -66,64 +55,51 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
     
-    // Ajouter un délai avant de fermer les menus au survol
     let dropdownTimeout;
     
-    // Gestionnaire d'événements pour les liens de menu déroulant
     dropdownLinks.forEach(link => {
         const parent = link.parentNode;
         const dropdownMenu = parent.querySelector('.dropdown-menu');
         
-        // Événement au clic
         link.addEventListener('click', function(e) {
-            // Sur mobile
             if (window.innerWidth < 992) {
                 e.preventDefault();
                 
-                // Fermer tous les autres menus déroulants
                 dropdownLinks.forEach(otherLink => {
                     if (otherLink !== link && otherLink.parentNode.classList.contains('dropdown-active')) {
                         otherLink.parentNode.classList.remove('dropdown-active');
                     }
                 });
                 
-                // Toggle du menu actuel avec animation
                 if (parent.classList.contains('dropdown-active')) {
-                    // Animation de fermeture
                     dropdownMenu.style.opacity = '0';
                     dropdownMenu.style.transform = 'translateX(-50%) translateY(10px)';
                     setTimeout(() => {
                         parent.classList.remove('dropdown-active');
                     }, 300);
                 } else {
-                    // Animation d'ouverture
                     parent.classList.add('dropdown-active');
                 }
             } else {
-                // Sur desktop, empêcher la navigation si on clique sur un lien avec sous-menu
                 if (this.getAttribute('href') === '#' || this.getAttribute('href') === '') {
                     e.preventDefault();
                 }
             }
         });
         
-        // Événements pour desktop (hover avec délai)
         if (window.innerWidth >= 992) {
-            // Ouvrir au survol avec un léger délai
             parent.addEventListener('mouseenter', function() {
                 clearTimeout(dropdownTimeout);
-                closeAllDropdowns(); // Fermer les autres menus
+                closeAllDropdowns();
                 this.classList.add('active');
             });
             
-            // Délai avant de fermer quand on quitte
             parent.addEventListener('mouseleave', function() {
                 dropdownTimeout = setTimeout(() => {
                     this.classList.remove('active');
-                }, 200); // Délai de 200ms avant de fermer le menu
+                }, 200);
             });
             
-            // Permettre de naviguer dans le menu déroulant sans qu'il se ferme
             if (dropdownMenu) {
                 dropdownMenu.addEventListener('mouseenter', function() {
                     clearTimeout(dropdownTimeout);
@@ -137,7 +113,6 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         }
         
-        // Amélioration pour mobile : fermer au swipe vers le bas
         if (window.innerWidth < 992 && dropdownMenu) {
             dropdownMenu.addEventListener('touchstart', function(e) {
                 touchStartY = e.changedTouches[0].screenY;
@@ -145,21 +120,19 @@ document.addEventListener('DOMContentLoaded', function() {
             
             dropdownMenu.addEventListener('touchend', function(e) {
                 touchEndY = e.changedTouches[0].screenY;
-                if (touchEndY - touchStartY > 50) { // Swipe vers le bas
+                if (touchEndY - touchStartY > 50) {
                     parent.classList.remove('dropdown-active');
                 }
             }, { passive: true });
         }
     });
     
-    // Fermer les menus déroulants quand on clique ailleurs sur la page
     document.addEventListener('click', function(e) {
         if (!e.target.closest('.has-dropdown')) {
             closeAllDropdowns();
         }
     });
     
-    // Ajout d'une classe active au lien de navigation correspondant à la page actuelle
     function setActiveNavItem() {
         const currentLocation = window.location.pathname;
         const navItems = document.querySelectorAll('.nav-links > li > a');
@@ -167,7 +140,6 @@ document.addEventListener('DOMContentLoaded', function() {
         navItems.forEach(item => {
             const href = item.getAttribute('href');
             
-            // Réinitialiser d'abord
             item.classList.remove('active');
             if (item.parentNode.classList.contains('has-dropdown')) {
                 item.parentNode.classList.remove('active');

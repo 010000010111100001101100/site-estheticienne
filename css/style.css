@@ -1,50 +1,35 @@
-/* 
-* Beauté Élégance - Institut d'esthétique
-* Feuille de style principale
-*/
-
-/* ===== VARIABLES ===== */
 :root {
-    /* Couleurs principales */
-    --primary-color: #4a7c59; /* Vert feuille */
+    --primary-color: #4a7c59;
     --primary-dark: #3a6348;
-    --secondary-color: #6b8e9b; /* Bleu-gris */
+    --secondary-color: #6b8e9b;
     --secondary-dark: #557885;
-    --accent-color: #d4af37; /* Or */
+    --accent-color: #d4af37;
     
-    /* Couleurs neutres */
     --dark: #333333;
     --medium: #777777;
     --light: #f8f8f8;
     --white: #ffffff;
     
-    /* Typographie */
     --font-primary: 'Playfair Display', serif;
     --font-secondary: 'Poppins', sans-serif;
     
-    /* Espacement */
     --spacing-xs: 0.5rem;
     --spacing-sm: 1rem;
     --spacing-md: 2rem;
     --spacing-lg: 4rem;
     --spacing-xl: 8rem;
 
-    /* Flèche de défilement */
     --scroll-down-size: 2rem;
     --scroll-down-color: var(--white);
     --scroll-down-animation-duration: 2s;
     
-    /* Bordures et ombres */
     --border-radius: 4px;
     --box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
     --box-shadow-hover: 0 8px 25px rgba(0, 0, 0, 0.15);
     
-    /* Transitions */
     --transition: all 0.3s ease;
 }
 
-/* ===== MENU ===== */
-/* Style pour le bouton de connexion */
 .login-link {
     color: #ffffff !important;
 }
@@ -89,7 +74,6 @@
     background: transparent;
 }
 
-/* Effet de soulignement */
 .nav-links a::after {
     content: '';
     position: absolute;
@@ -101,14 +85,12 @@
     transition: width 0.3s ease;
 }
 
-/* État normal */
 .nav-links a:hover {
     color: var(--primary-color);
     font-weight: 600;
     background-color: rgba(229, 179, 187, 0.1);
 }
 
-/* État actif */
 .nav-links a.active,
 .nav-links .has-dropdown.active > a {
     color: var(--primary-dark);
@@ -117,7 +99,6 @@
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
-/* Soulignement actif */
 .nav-links a.active::after,
 .nav-links .has-dropdown.active > a::after {
     width: 100%;
@@ -125,13 +106,11 @@
     background: var(--primary-color);
 }
 
-/* Soulignement hover */
 .nav-links a:hover::after {
     width: 100%;
     background: var(--primary-color);
 }
 
-/* Menu déroulant */
 .dropdown-menu {
     position: absolute;
     top: 100%;
@@ -182,7 +161,6 @@
     }
 }
 
-/* Animation des éléments du menu déroulant */
 .dropdown-menu li {
     opacity: 0;
     transform: translateY(10px);
@@ -201,7 +179,6 @@
     transform: translateY(0);
 }
 
-/* Items du menu déroulant */
 .dropdown-menu .dropdown-item {
     display: flex;
     align-items: center;
@@ -2536,7 +2513,6 @@ h3:hover::before {
     will-change: transform, opacity;
 }
 
-/* Délais d'animation pour les éléments en cascade */
 .delay-100 {
     animation-delay: 0.1s;
 }
@@ -2557,7 +2533,6 @@ h3:hover::before {
     animation-delay: 0.5s;
 }
 
-/* ===== AMÉLIORATIONS DES CARTES DE SERVICES ===== */
 .service-card {
     transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
     position: relative;
@@ -3050,9 +3025,8 @@ h3:hover::before {
     border-bottom-left-radius: 0;
 }
 
-/* ===== FOOTER ===== */
 .nom-rose {
-    color: #ff69b4 !important; /* Rose vif avec !important pour forcer l'application */
+    color: #ff69b4 !important;
     font-weight: bold;
 }
 

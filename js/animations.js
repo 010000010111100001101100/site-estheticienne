@@ -1,22 +1,12 @@
-/**
- * Script d'animations élégantes pour le site
- * L'instant de Doriane - Institut d'esthétique
- */
-
 document.addEventListener('DOMContentLoaded', function() {
-    // Animation des éléments au défilement
     const animateOnScroll = function() {
-        // Sélectionner tous les éléments avec animation
         const animatedElements = document.querySelectorAll('.animate-fade-up, .animate-fade-left, .animate-fade-right, .fade-in-section');
         
         animatedElements.forEach(element => {
-            // Vérifier si l'élément est visible dans la fenêtre
             const elementPosition = element.getBoundingClientRect();
             const windowHeight = window.innerHeight;
             
-            // Si l'élément est visible (avec un décalage pour déclencher l'animation un peu avant)
             if (elementPosition.top < windowHeight * 0.85) {
-                // Ajouter la classe appropriée pour déclencher l'animation
                 if (element.classList.contains('fade-in-section')) {
                     element.classList.add('is-visible');
                 } else {
@@ -26,13 +16,10 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     };
     
-    // Exécuter l'animation au chargement initial
     animateOnScroll();
     
-    // Exécuter l'animation lors du défilement
     window.addEventListener('scroll', animateOnScroll);
     
-    // Effet de brillance sur les titres
     const addGlowEffect = function() {
         const headings = document.querySelectorAll('h1, h2');
         
