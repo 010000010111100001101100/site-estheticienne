@@ -3,10 +3,8 @@
   <head>
     <meta charset="utf-8">
     <title>Administration</title>
-    <!-- Netlify Identity Widget -->
-    <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
     <!-- Decap CMS -->
-    <script src="https://unpkg.com/decap-cms@^3.0.0/dist/decap-cms.js"></script>
+    <script src="https://unpkg.com/decap-cms@^3.0.0/dist/decap-cms.js" defer></script>
     <style>
       body {
         display: flex;
@@ -22,6 +20,7 @@
     </style>
   </head>
   <body>
+    <div id="nc-root"></div>
     <p class="message">Chargement de l'interface d'administration…</p>
     <script>
       /* Redirige vers la page d'admin après connexion */
