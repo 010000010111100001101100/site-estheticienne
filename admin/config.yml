@@ -1,6 +1,6 @@
 backend:
   name: github
-  repo: <VOTRE_USERNAME_GITHUB>/site-estheticienne
+  repo: Axl/site-estheticienne
   branch: main
   commit_messages:
     create: "Création {{collection}} “{{slug}}” via CMS"
