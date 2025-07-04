@@ -1,0 +1,47 @@
+backend:
+  name: github
+  repo: <VOTRE_USERNAME_GITHUB>/site-estheticienne
+  branch: main
+  commit_messages:
+    create: "Création {{collection}} “{{slug}}” via CMS"
+    update: "Mise à jour {{collection}} “{{slug}}” via CMS"
+    delete: "Suppression {{collection}} “{{slug}}” via CMS"
+media_folder: images
+public_folder: /images
+
+collections:
+  # Horaires d'ouverture
+  - name: horaires
+    label: Horaires
+    delete: false
+    files:
+      - file: data/horaires.json
+        label: Horaires
+        name: horaires
+        format: json
+        fields:
+          - {label: "Lundi", name: lundi, widget: string}
+          - {label: "Mardi", name: mardi, widget: string}
+          - {label: "Mercredi", name: mercredi, widget: string}
+          - {label: "Jeudi", name: jeudi, widget: string}
+          - {label: "Vendredi", name: vendredi, widget: string}
+          - {label: "Samedi", name: samedi, widget: string}
+          - {label: "Dimanche", name: dimanche, widget: string}
+
+  # Édition des pages principales (HTML brut)
+  - name: pages
+    label: Pages
+    files:
+      - name: accueil
+        label: Page d'accueil
+        file: index.html
+        preview_path: /
+        fields:
+          - {label: Contenu, name: body, widget: text}
+      - name: contact
+        label: Page Contact
+        file: pages/contact/index.html
+        preview_path: /pages/contact/
+        fields:
+          - {label: Contenu, name: body, widget: text}
+
