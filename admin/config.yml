@@ -39,8 +39,6 @@ media_library:
 media_folder: "static/images"
 public_folder: "/images"
 
-# Activer l'édition en ligne
-local_backend: false
 
 collections:
   # Horaires d'ouverture
