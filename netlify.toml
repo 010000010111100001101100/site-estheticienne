@@ -1,0 +1,38 @@
+[build]
+  publish = "."
+  command = ""
+
+[[redirects]]
+  from = "/admin/*"
+  to = "/admin/index.html"
+  status = 200
+
+[[redirects]]
+  from = "/recover"
+  to = "/admin/recover.html"
+  status = 200
+
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
+
+[[headers]]
+  for = "/admin/*"
+  [headers.values]
+    X-Frame-Options = "DENY"
+    X-XSS-Protection = "1; mode=block"
+    X-Content-Type-Options = "nosniff"
+    Referrer-Policy = "same-origin"
+    Content-Security-Policy = "default-src 'self' https:; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://identity.netlify.com https://unpkg.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; img-src 'self' data: https:; font-src 'self' https://fonts.gstatic.com;"
+
+# Enable authentication with Netlify Identity
+[[redirects]]
+  from = "/.netlify/identity"
+  to = "https://linstantdedoriane.netlify.app/.netlify/identity"
+  status = 200
+
+[[redirects]]
+  from = "/.netlify/identity/*"
+  to = "https://linstantdedoriane.netlify.app/.netlify/identity/:splat"
+  status = 200
