@@ -30,19 +30,19 @@ editor:
 # Configuration du panneau de contrôle
 dashboard:
   widgets:
-    - name: 'welcome'
-      label: 'Bienvenue sur votre espace d\'administration'
-      widget: 'string'
-      default: 'Gérez facilement le contenu de votre site.'
-    - name: 'workflow'
-      label: 'Statut de publication'
-      widget: 'workflow'
-    - name: 'draft'
-      label: 'Brouillons'
-      widget: 'draft'
-    - name: 'recent_activity'
-      label: 'Activité récente'
-      widget: 'recent_activity'
+    - name: welcome
+      label: "Bienvenue sur votre espace d'administration"
+      widget: string
+      default: "Gérez facilement le contenu de votre site."
+    - name: workflow
+      label: "Statut de publication"
+      widget: workflow
+    - name: draft
+      label: "Brouillons"
+      widget: draft
+    - name: recent_activity
+      label: "Activité récente"
+      widget: recent_activity
 
 # Configuration des médias
 media_library:
