@@ -1,15 +1,26 @@
 backend:
-  name: github
-  repo: Axl/site-estheticienne
+  name: git-gateway
   branch: main
-  auth_type: implicit
-  app_id: Ov23liv8ojlUgxlVKe1g
+  site_id: 128f604d-26de-4a3d-a992-932e269559e8
   commit_messages:
-    create: "Création {{collection}} “{{slug}}” via CMS"
-    update: "Mise à jour {{collection}} “{{slug}}” via CMS"
-    delete: "Suppression {{collection}} “{{slug}}” via CMS"
-media_folder: images
-public_folder: /images
+    create: "Création {{collection}} «{{slug}}» via CMS"
+    update: "Mise à jour {{collection}} «{{slug}}» via CMS"
+    delete: "Suppression {{collection}} «{{slug}}» via CMS"
+    uploadMedia: "Téléversement de média «{{path}}»"
+    deleteMedia: "Suppression de média «{{path}}»"
+    openAuthoring: "{{message}}"
+
+# Configuration du site
+site_url: https://linstantdedoriane.fr
+logo_url: /logo.png
+show_preview_links: true
+
+# Configuration des médias
+media_folder: "static/images"
+public_folder: "/images"
+
+# Activer l'édition en ligne
+local_backend: false
 
 collections:
   # Horaires d'ouverture
