@@ -1,0 +1,95 @@
+/* Couleurs principales */
+:root {
+  --primary-color: #9f7a8e;  /* Rose doux */
+  --secondary-color: #f8f9fa;  /* Gris clair */
+  --accent-color: #d4b8c7;    /* Rose pâle */
+  --text-color: #2d3748;       /* Gris foncé */
+  --success-color: #48bb78;   /* Vert */
+}
+
+/* En-tête */
+.CMS_Header_root {
+  background-color: var(--primary-color) !important;
+  color: white !important;
+  border-bottom: none !important;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+}
+
+/* Boutons */
+.CMS_Button_primary {
+  background-color: var(--primary-color) !important;
+  border-color: var(--primary-color) !important;
+}
+
+.CMS_Button_primary:hover {
+  background-color: #8a6a7c !important;
+  border-color: #8a6a7c !important;
+}
+
+/* Menu latéral */
+.CMS_Sidebar_root {
+  background-color: white !important;
+  border-right: 1px solid #e2e8f0 !important;
+}
+
+.CMS_Sidebar_nav-item-active {
+  background-color: var(--secondary-color) !important;
+  color: var(--primary-color) !important;
+  border-left: 3px solid var(--primary-color) !important;
+}
+
+/* Cartes de contenu */
+.CMS_Card_root {
+  border: 1px solid #e2e8f0 !important;
+  border-radius: 8px !important;
+  transition: transform 0.2s, box-shadow 0.2s !important;
+}
+
+.CMS_Card_root:hover {
+  transform: translateY(-2px) !important;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1) !important;
+}
+
+/* Champs de formulaire */
+.CMS_TextInput_input, 
+.CMS_Textarea_textarea,
+.CMS_Select_select {
+  border: 1px solid #e2e8f0 !important;
+  border-radius: 4px !important;
+  padding: 8px 12px !important;
+}
+
+.CMS_TextInput_input:focus, 
+.CMS_Textarea_textarea:focus,
+.CMS_Select_select:focus {
+  border-color: var(--primary-color) !important;
+  box-shadow: 0 0 0 2px rgba(159, 122, 142, 0.2) !important;
+}
+
+/* Bouton de publication */
+.CMS_WorkflowPublish_publishButton {
+  background-color: var(--success-color) !important;
+  border-color: var(--success-color) !important;
+}
+
+/* Animation de chargement */
+@keyframes pulse {
+  0% { opacity: 0.6; }
+  50% { opacity: 1; }
+  100% { opacity: 0.6; }
+}
+
+.CMS_Loading_loading {
+  animation: pulse 1.5s ease-in-out infinite !important;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .CMS_Sidebar_root {
+    width: 220px !important;
+  }
+  
+  .CMS_Header_root {
+    padding: 0 1rem !important;
+  }
+}

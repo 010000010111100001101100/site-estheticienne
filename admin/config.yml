@@ -12,8 +12,44 @@ backend:
 
 # Configuration du site
 site_url: https://linstantdedoriane.fr
-logo_url: /logo.png
+logo_url: /images/logo.svg
 show_preview_links: true
+favicon: /images/logo-icon.svg
+
+# Personnalisation de l'interface
+locale: 'fr'
+
+# Thème personnalisé
+local_backend: false
+
+# Configuration de l'éditeur
+editor:
+  preview: true
+  frame: true
+
+# Configuration du panneau de contrôle
+dashboard:
+  widgets:
+    - name: 'welcome'
+      label: 'Bienvenue sur votre espace d\'administration'
+      widget: 'string'
+      default: 'Gérez facilement le contenu de votre site.'
+    - name: 'workflow'
+      label: 'Statut de publication'
+      widget: 'workflow'
+    - name: 'draft'
+      label: 'Brouillons'
+      widget: 'draft'
+    - name: 'recent_activity'
+      label: 'Activité récente'
+      widget: 'recent_activity'
+
+# Configuration des médias
+media_library:
+  name: cloudinary
+  config:
+    cloud_name: your_cloud_name
+    api_key: your_api_key
 
 # Configuration des médias
 media_folder: "static/images"
